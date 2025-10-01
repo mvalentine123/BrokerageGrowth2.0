@@ -61,6 +61,7 @@ export const PricingTable = () => {
                     ))}
                   </div>
                 </th>
+
                 {orderedTierNames.map((tierName) => (
                   <th
                     key={`hdr-${tierName}`}
@@ -69,23 +70,37 @@ export const PricingTable = () => {
                     <div className="text-charcoal-700 text-lg font-medium dark:text-neutral-100">
                       {tierName}
                     </div>
+
                     <div className="flex items-center text-sm font-normal text-gray-600 dark:text-neutral-300">
-                      $<SlidingNumber value={titleToPrice[tierName]?.[cycle]} />
-                      /seat billed{" "}
-                      {cycle === "monthly" ? "monthly" : "annually"}
+                      {tierName === TierName.TIER_2 ? (
+                        <>
+                          $<SlidingNumber value={titleToPrice[tierName]?.[cycle]} />
+                          /seat billed{" "}
+                          {cycle === "monthly" ? "monthly" : "annually"}
+                        </>
+                      ) : (
+                        // invisible placeholder so alignment stays consistent
+                        <span className="text-sm text-transparent">placeholder</span>
+                      )}
                     </div>
-                    <Button
-                      as={Link}
-                      href="/sign-up"
-                      className="mt-4 w-full"
-                      variant="secondary"
-                    >
-                      Start for free
-                    </Button>
+
+                    {tierName === TierName.TIER_2 ? (
+                      <Button
+                        as={Link}
+                        href="/contact"
+                        className="mt-4 w-full"
+                        variant="brand"
+                      >
+                        Schedule a Consultation
+                      </Button>
+                    ) : (
+                      <div className="mt-4 h-10" aria-hidden="true" />
+                    )}
                   </th>
                 ))}
               </tr>
             </thead>
+
             <tbody className="">
               {pricingTable.map((row, index) => (
                 <tr
@@ -98,6 +113,7 @@ export const PricingTable = () => {
                   <td className="text-charcoal-700 flex px-4 py-6 text-center text-sm dark:text-neutral-100">
                     {row.title}
                   </td>
+
                   {orderedTierNames.map((tierName) => {
                     const tierVal = row.tiers.find(
                       (t) => t.title === tierName,
@@ -107,7 +123,8 @@ export const PricingTable = () => {
                         key={`${row.title}-${tierName}`}
                         className="text-charcoal-700 mx-auto px-4 py-6 text-center text-sm dark:text-neutral-100"
                       >
-                        {tierVal}
+                        {/* only show values for middle tier */}
+                        {tierName === TierName.TIER_2 ? tierVal : null}
                       </td>
                     );
                   })}
