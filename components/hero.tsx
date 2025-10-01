@@ -15,18 +15,17 @@ export const Hero = () => {
     <Container className="border-divide flex flex-col items-center justify-center border-x px-4 pt-10 pb-10 md:pt-32 md:pb-20">
       <Badge text="For fast moving engineering teams." />
       <Heading className="mt-4">
-        Manage and simulate <br /> agentic{" "}
-        <span className="text-brand">workflows</span>
+        Grow Your Brokerage <br /> in Months{" "}
+        <span className="text-brand">Not Years</span>
       </Heading>
 
       <SubHeading className="mx-auto mt-6 max-w-lg">
-        We empower developers and technical teams to create, simulate, and
-        manage AI-driven workflows visually
+        Recruiting, onboarding, training, and lead generation—turnkey processes to scale to 100 agents in 5 months.
       </SubHeading>
 
       <div className="mt-6 flex items-center gap-4">
         <Button as={Link} href="/sign-up">
-          Start building
+          Start Growing
         </Button>
         <Button variant="secondary" as={Link} href="/pricing">
           View pricing
