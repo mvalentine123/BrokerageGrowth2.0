@@ -13,7 +13,7 @@ import Link from "next/link";
 export const Hero = () => {
   return (
     <Container className="border-divide flex flex-col items-center justify-center border-x px-4 pt-10 pb-10 md:pt-32 md:pb-20">
-      <Badge text="For fast moving engineering teams." />
+      <Badge text="For Brokerage Owners & Team Leaders." />
       <Heading className="mt-4">
         Grow Your Brokerage <br /> in Months{" "}
         <span className="text-brand">Not Years</span>
