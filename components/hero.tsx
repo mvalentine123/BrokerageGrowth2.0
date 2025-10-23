@@ -4,7 +4,8 @@ import { Container } from "./container";
 import { Heading } from "./heading";
 import { ShimmerText } from "./shimmer-text";
 import { SubHeading } from "./subheading";
-import { GoogleLogo, GartnerLogoText, Star } from "@/icons/general";
+import { FeaturedImages } from "@/components/ui/simple-cta-with-images";
+import { testimonials } from "@/constants/testimonials";
 import { motion } from "motion/react";
 import { Button } from "./button";
 import { Badge } from "./badge";
@@ -35,29 +36,17 @@ export const Hero = () => {
           View pricing
         </Button>
       </div>
-      <div className="mt-6 flex items-center gap-2">
-        <GoogleLogo />
-        <div className="-gap-5 flex items-center">
-          {[...Array(5)].map((_, index) => (
-            <motion.div
-              key={index}
-              initial={{
-                opacity: 0,
-              }}
-              animate={{
-                opacity: 1,
-              }}
-              transition={{ duration: 1, delay: index * 0.05 }}
-            >
-              <Star key={index} />
-            </motion.div>
-          ))}
-        </div>
-        <span className="border-l border-gray-500 pl-4 text-[10px] text-gray-600 sm:text-sm">
-          Innovative AI solution 2025 by
-        </span>
-        <GartnerLogoText className="size-12 sm:size-16" />
-      </div>
+      <FeaturedImages
+        showStars
+        textClassName="text-center"
+        className="items-center justify-center"
+        containerClassName="items-center"
+        testimonials={testimonials.slice(0, 6).map((t) => ({
+          name: t.name,
+          designation: t.position,
+          image: t.avatar,
+        }))}
+      />
     </Container>
   );
 };
