@@ -1,3 +1,46 @@
+"use client";
+
+import Image from "next/image";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+
+export const GoogleLogo = (props: React.HTMLAttributes<HTMLDivElement>) => {
+  const { theme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <div className="size-[38px]" />;
+  }
+
+  const currentTheme = theme === "system" ? resolvedTheme : theme;
+  const isDark = currentTheme === "dark";
+
+  return (
+    <div {...props} className="relative size-[38px]">
+      <Image
+        src="https://res.cloudinary.com/dreomly4m/image/upload/v1761262771/google_rgryn4.png"
+        alt="Google"
+        width={38}
+        height={38}
+        className={`absolute inset-0 transition-opacity duration-300 ${isDark ? "opacity-0" : "opacity-100"}`}
+        priority
+      />
+      <Image
+        src="https://res.cloudinary.com/dreomly4m/image/upload/v1761262817/google_3_rb92vx.png"
+        alt="Google"
+        width={38}
+        height={38}
+        className={`absolute inset-0 transition-opacity duration-300 ${isDark ? "opacity-100" : "opacity-0"}`}
+        priority
+      />
+    </div>
+  );
+};
+
 export const GartnerLogo = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg

@@ -4,7 +4,7 @@ import { Container } from "./container";
 import { Heading } from "./heading";
 import { ShimmerText } from "./shimmer-text";
 import { SubHeading } from "./subheading";
-import { GartnerLogo, GartnerLogoText, Star } from "@/icons/general";
+import { GoogleLogo, GartnerLogoText, Star } from "@/icons/general";
 import { motion } from "motion/react";
 import { Button } from "./button";
 import { Badge } from "./badge";
@@ -36,7 +36,7 @@ export const Hero = () => {
         </Button>
       </div>
       <div className="mt-6 flex items-center gap-2">
-        <GartnerLogo />
+        <GoogleLogo />
         <div className="-gap-5 flex items-center">
           {[...Array(5)].map((_, index) => (
             <motion.div
