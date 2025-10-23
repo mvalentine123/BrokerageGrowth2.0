@@ -369,16 +369,16 @@ const AgentCard = ({
             className="h-full w-full object-cover"
           />
         </div>
-        <span className="text-charcoal-700 text-xs font-medium sm:text-sm dark:text-white">
+        <span className="text-charcoal-700 text-xs font-medium sm:text-sm">
           {name}
         </span>
       </div>
       <div className="ml-2 flex flex-row items-center gap-2">
-        <span className="text-charcoal-700 text-xs font-normal dark:text-neutral-300">
+        <span className="text-charcoal-700 text-xs font-normal">
           {timestamp}
         </span>
         <div className="size-1 rounded-full bg-gray-400"></div>
-        <span className="text-charcoal-700 text-xs font-normal dark:text-neutral-300">{platform}</span>
+        <span className="text-charcoal-700 text-xs font-normal">{platform}</span>
       </div>
     </div>
   );
