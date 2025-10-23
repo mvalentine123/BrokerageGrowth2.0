@@ -4,6 +4,8 @@ import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { ThemeProvider } from "@/context/theme-provider";
+import { CalendarProvider } from "@/context/calendar-context";
+import { CalendarModalWrapper } from "@/components/calendar-modal-wrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,11 +31,14 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className="font-primary h-full bg-white [--pattern-fg:var(--color-charcoal-900)]/10 dark:bg-black dark:[--pattern-fg:var(--color-neutral-100)]/30">
         <ThemeProvider attribute="class" defaultTheme="system">
-          <main className="h-full bg-white antialiased dark:bg-black">
-            <Navbar />
-            {children}
-            <Footer />
-          </main>
+          <CalendarProvider>
+            <main className="h-full bg-white antialiased dark:bg-black">
+              <Navbar />
+              {children}
+              <Footer />
+            </main>
+            <CalendarModalWrapper />
+          </CalendarProvider>
         </ThemeProvider>
       </body>
     </html>
