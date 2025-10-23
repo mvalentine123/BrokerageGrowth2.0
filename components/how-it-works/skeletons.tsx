@@ -6,6 +6,8 @@ import {
   OpenAILogo,
   SlackLogo,
 } from "@/icons/general";
+import { agents } from "@/constants/agents";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { DivideX } from "../divide";
@@ -224,73 +226,7 @@ export const DeployAndScaleSkeleton = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [containerHeight, setContainerHeight] = useState(0);
 
-  // Define deploy cards data for reusability
-  const deployCards = [
-    { title: "deploy-dev-eu-324", subtitle: "2h ago", branch: "master" },
-    {
-      title: "deploy-prod-eu-128",
-      subtitle: "10m ago",
-      branch: "main",
-      variant: "success" as const,
-    },
-    { title: "deploy-dev-us-445", subtitle: "45m ago", branch: "feature/auth" },
-    {
-      title: "deploy-prod-ap-223",
-      subtitle: "1h ago",
-      branch: "main",
-      variant: "success" as const,
-    },
-    {
-      title: "deploy-dev-eu-891",
-      subtitle: "2h ago",
-      branch: "fix/cache",
-      variant: "warning" as const,
-    },
-    {
-      title: "deploy-prod-us-337",
-      subtitle: "3h ago",
-      branch: "main",
-      variant: "success" as const,
-    },
-    {
-      title: "deploy-dev-ap-556",
-      subtitle: "4h ago",
-      branch: "feat/api",
-      variant: "danger" as const,
-    },
-    {
-      title: "deploy-dev-eu-672",
-      subtitle: "5h ago",
-      branch: "feat/search",
-      variant: "default" as const,
-    },
-    {
-      title: "deploy-prod-ap-445",
-      subtitle: "6h ago",
-      branch: "main",
-      variant: "success" as const,
-    },
-    {
-      title: "deploy-dev-us-891",
-      subtitle: "7h ago",
-      branch: "fix/perf",
-      variant: "warning" as const,
-    },
-    {
-      title: "deploy-prod-eu-223",
-      subtitle: "8h ago",
-      branch: "main",
-      variant: "success" as const,
-    },
-    {
-      title: "deploy-dev-ap-337",
-      subtitle: "9h ago",
-      branch: "feat/analytics",
-      variant: "default" as const,
-    },
-  ];
-
-  const extendedCards = [...deployCards, ...deployCards, ...deployCards];
+  const extendedCards = [...agents, ...agents, ...agents];
 
   const cardHeight = 64;
   const gap = 4;
@@ -351,7 +287,7 @@ export const DeployAndScaleSkeleton = () => {
       >
         {extendedCards.map((card, index) => (
           <motion.div
-            key={`${index}-${card.title}`}
+            key={`${index}-${card.name}`}
             className="mx-auto mt-4 w-full max-w-sm shrink-0 rounded-2xl shadow-xl"
             style={{
               scale: useTransform(
@@ -386,11 +322,12 @@ export const DeployAndScaleSkeleton = () => {
               ),
             }}
           >
-            <DeployCard
+            <AgentCard
               variant={card.variant}
-              title={card.title}
-              subtitle={card.subtitle}
-              branch={card.branch}
+              name={card.name}
+              headshot={card.headshot}
+              timestamp={card.timestamp}
+              platform={card.platform}
             />
           </motion.div>
         ))}
@@ -399,49 +336,49 @@ export const DeployAndScaleSkeleton = () => {
   );
 };
 
-const DeployCard = ({
+const AgentCard = ({
   variant = "default",
-  title,
-  subtitle,
-  branch,
+  name,
+  headshot,
+  timestamp,
+  platform,
 }: {
   variant?: "default" | "danger" | "success" | "warning";
-  title: string;
-  subtitle: string;
-  branch: string;
+  name: string;
+  headshot: string;
+  timestamp: string;
+  platform: string;
 }) => {
   return (
     <div className="mx-auto flex w-full max-w-sm items-center justify-between rounded-lg p-3">
       <div className="flex items-center gap-2">
         <div
           className={cn(
-            "flex h-6 w-6 items-center justify-center rounded-md",
-            variant === "default" && "bg-gray-200",
-            variant === "danger" && "bg-red-200",
-            variant === "success" && "bg-green-200",
-            variant === "warning" && "bg-yellow-200",
+            "relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full ring-2",
+            variant === "default" && "ring-gray-200",
+            variant === "danger" && "ring-red-200",
+            variant === "success" && "ring-green-200",
+            variant === "warning" && "ring-yellow-200",
           )}
         >
-          <ForkIcon
-            className={cn(
-              "h-4 w-4",
-              variant === "default" && "text-gray-500",
-              variant === "danger" && "text-red-500",
-              variant === "success" && "text-green-500",
-              variant === "warning" && "text-yellow-500",
-            )}
+          <Image
+            src={headshot}
+            alt={name}
+            width={40}
+            height={40}
+            className="h-full w-full object-cover"
           />
         </div>
-        <span className="text-charcoal-700 text-xs font-medium sm:text-sm">
-          {title}
+        <span className="text-charcoal-700 text-xs font-medium sm:text-sm dark:text-white">
+          {name}
         </span>
       </div>
       <div className="ml-2 flex flex-row items-center gap-2">
-        <span className="text-charcoal-700 text-xs font-normal">
-          {subtitle}
+        <span className="text-charcoal-700 text-xs font-normal dark:text-neutral-300">
+          {timestamp}
         </span>
         <div className="size-1 rounded-full bg-gray-400"></div>
-        <span className="text-charcoal-700 text-xs font-normal">{branch}</span>
+        <span className="text-charcoal-700 text-xs font-normal dark:text-neutral-300">{platform}</span>
       </div>
     </div>
   );
