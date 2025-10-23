@@ -7,11 +7,9 @@ import { cn } from "@/lib/utils";
 import { Button } from "./button";
 import { SlidingNumber } from "./sliding-number";
 import Link from "next/link";
-import { useCalendar } from "@/context/calendar-context";
 
 export const PricingTable = () => {
   const [cycle, setCycle] = useState<"monthly" | "yearly">("monthly");
-  const { openCalendar } = useCalendar();
 
   const orderedTierNames: TierName[] = useMemo(
     () => [TierName.TIER_1, TierName.TIER_2, TierName.TIER_3],
@@ -88,7 +86,9 @@ export const PricingTable = () => {
 
                     {tierName === TierName.TIER_2 ? (
                       <Button
-                        onClick={openCalendar}
+                        data-cal-namespace="zoom"
+                        data-cal-link="mvalentine/zoom"
+                        data-cal-config='{"layout":"month_view"}'
                         className="mt-4 w-full"
                         variant="brand"
                       >

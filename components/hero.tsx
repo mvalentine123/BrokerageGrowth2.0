@@ -9,10 +9,8 @@ import { motion } from "motion/react";
 import { Button } from "./button";
 import { Badge } from "./badge";
 import Link from "next/link";
-import { useCalendar } from "@/context/calendar-context";
 
 export const Hero = () => {
-  const { openCalendar } = useCalendar();
   return (
     <Container className="border-divide flex flex-col items-center justify-center border-x px-4 pt-10 pb-10 md:pt-32 md:pb-20">
       <Badge text="For Brokerage Owners & Team Leaders." />
@@ -26,7 +24,11 @@ export const Hero = () => {
       </SubHeading>
 
       <div className="mt-6 flex items-center gap-4">
-        <Button onClick={openCalendar}>
+        <Button
+          data-cal-namespace="zoom"
+          data-cal-link="mvalentine/zoom"
+          data-cal-config='{"layout":"month_view"}'
+        >
           Book a Call
         </Button>
         <Button variant="secondary" as={Link} href="/pricing">

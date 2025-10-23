@@ -5,10 +5,8 @@ import { Badge } from "./badge";
 import { SectionHeading } from "./seciton-heading";
 import { Button } from "./button";
 import Link from "next/link";
-import { useCalendar } from "@/context/calendar-context";
 
 export const Pricing = () => {
-  const { openCalendar } = useCalendar();
   return (
     <section className="">
       <Container className="border-divide flex flex-col items-center justify-center border-x py-20">
@@ -21,7 +19,9 @@ export const Pricing = () => {
           explore how we can help, and find the perfect solution for your needs.
         </p>
         <Button
-          onClick={openCalendar}
+          data-cal-namespace="zoom"
+          data-cal-link="mvalentine/zoom"
+          data-cal-config='{"layout":"month_view"}'
           className="mt-8 px-8 py-3"
           variant="brand"
         >

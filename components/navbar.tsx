@@ -13,7 +13,6 @@ import {
   useTransform,
 } from "motion/react";
 import { ModeToggle } from "./mode-toggle";
-import { useCalendar } from "@/context/calendar-context";
 
 const items = [
   {
@@ -46,7 +45,6 @@ export const Navbar = () => {
 
 const MobileNav = ({ items }: { items: { title: string; href: string }[] }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { openCalendar } = useCalendar();
   return (
     <div className="relative flex items-center justify-between p-2 md:hidden">
       <Logo />
@@ -102,10 +100,10 @@ const MobileNav = ({ items }: { items: { title: string; href: string }[] }) => {
               ))}
               <div className="mt-4 p-4">
                 <Button
-                  onClick={() => {
-                    setIsOpen(false);
-                    openCalendar();
-                  }}
+                  onClick={() => setIsOpen(false)}
+                  data-cal-namespace="zoom"
+                  data-cal-link="mvalentine/zoom"
+                  data-cal-config='{"layout":"month_view"}'
                   className="w-full"
                 >
                   Book a Call
@@ -124,7 +122,6 @@ const DesktopNav = ({
 }: {
   items: { title: string; href: string }[];
 }) => {
-  const { openCalendar } = useCalendar();
   return (
     <div className="hidden items-center justify-between px-4 py-4 md:flex">
       <Logo />
@@ -141,7 +138,11 @@ const DesktopNav = ({
       </div>
       <div className="flex items-center gap-2">
         <ModeToggle />
-        <Button onClick={openCalendar}>
+        <Button
+          data-cal-namespace="zoom"
+          data-cal-link="mvalentine/zoom"
+          data-cal-config='{"layout":"month_view"}'
+        >
           Book a Call
         </Button>
       </div>
@@ -155,7 +156,6 @@ const FloatingNav = ({
   items: { title: string; href: string }[];
 }) => {
   const { scrollY } = useScroll();
-  const { openCalendar } = useCalendar();
   const springConfig = {
     stiffness: 300,
     damping: 30,
@@ -183,7 +183,11 @@ const FloatingNav = ({
       </div>
       <div className="flex items-center gap-2">
         <ModeToggle />
-        <Button onClick={openCalendar}>
+        <Button
+          data-cal-namespace="zoom"
+          data-cal-link="mvalentine/zoom"
+          data-cal-config='{"layout":"month_view"}'
+        >
           Book a Call
         </Button>
       </div>
