@@ -5,12 +5,20 @@ import { Container } from "./container";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "motion/react";
 import { logos } from "@/constants/logos";
+import { useTheme } from "next-themes";
 
 export const LogoCloud = () => {
+  const { theme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
   // Track which logos are currently displayed (indices)
   const [displayedIndices, setDisplayedIndices] = useState<number[]>(() =>
     Array.from({ length: 8 }, (_, i) => i),
   );
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -43,7 +51,7 @@ export const LogoCloud = () => {
   return (
     <Container className="border-divide border-x">
       <h2 className="py-8 text-center font-mono text-sm tracking-tight text-neutral-500 uppercase dark:text-gray-300">
-        Trusted by Fast Growing Startups
+        Trusted by Leading Real Estate Brokerages
       </h2>
       <div className="border-divide grid grid-cols-2 border-t md:grid-cols-4">
         {displayedIndices.map((logoIndex, position) => {
@@ -66,7 +74,7 @@ export const LogoCloud = () => {
               <AnimatePresence initial={false} mode="wait">
                 <motion.div
                   key={logoIndex}
-                  className="group flex min-h-32 items-center justify-center p-4 py-10 grayscale"
+                  className="group flex min-h-32 items-center justify-center p-4 py-10"
                   initial={{
                     y: 100,
                     opacity: 0,
@@ -88,10 +96,10 @@ export const LogoCloud = () => {
                   }}
                 >
                   <motion.img
-                    src={logo.src}
+                    src={mounted && (resolvedTheme === "dark" || theme === "dark") && logo.srcDark ? logo.srcDark : logo.src}
                     alt={logo.title}
                     className={cn(
-                      "h-8 w-auto object-contain transition-all duration-500 dark:invert dark:filter",
+                      "h-8 w-auto object-contain transition-all duration-500",
                       logo.className,
                     )}
                   />
