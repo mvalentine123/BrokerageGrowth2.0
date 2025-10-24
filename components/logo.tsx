@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { useTheme } from "next-themes";
+import { useState, useEffect } from "react";
 
 export const LogoSVG = (props: React.SVGProps<SVGSVGElement>) => {
   return (
@@ -19,10 +23,24 @@ export const LogoSVG = (props: React.SVGProps<SVGSVGElement>) => {
 };
 
 export const Logo = () => {
+  const { theme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const logoSrc = mounted && (resolvedTheme === "dark" || theme === "dark")
+    ? "https://res.cloudinary.com/dreomly4m/image/upload/v1761269914/Brokerage_Insight_Dark_Mode_p6ak0o.svg"
+    : "https://res.cloudinary.com/dreomly4m/image/upload/v1761269914/Brokerage_Insight_Light_Mode_ykpguc.svg";
+
   return (
-    <Link href="/" className="flex items-center gap-2">
-      <LogoSVG />
-      <span className="text-2xl font-medium">Notus</span>
+    <Link href="/" className="flex items-center">
+      <img
+        src={logoSrc}
+        alt="Brokerage Insight"
+        className="h-8 w-auto object-contain"
+      />
     </Link>
   );
 };
