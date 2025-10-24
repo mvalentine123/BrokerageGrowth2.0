@@ -71,7 +71,7 @@ export const HeroImage = () => {
           }}
         >
           <Image
-            src="/dashboard@3x.png"
+            src="https://res.cloudinary.com/dreomly4m/image/upload/v1761304124/Dashboard_Hero_Image_wwmrcu.svg"
             alt="Hero Image"
             className="w-full"
             priority
