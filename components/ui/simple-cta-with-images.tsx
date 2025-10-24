@@ -181,7 +181,7 @@ export const FeaturedImages = ({
           textClassName,
         )}
       >
-        Trusted by 150+ brokerage owners
+        Trusted by 100+ Real Estate Professionals
       </p>
     </div>
   );
