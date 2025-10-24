@@ -4,6 +4,7 @@ import { Container } from "./container";
 import Image from "next/image";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { Dot } from "./common/dots";
+import { useTheme } from "next-themes";
 
 const springConfig = {
   stiffness: 300,
@@ -12,6 +13,7 @@ const springConfig = {
 
 export const HeroImage = () => {
   const ref = useRef<HTMLDivElement>(null);
+  const { theme } = useTheme();
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -71,7 +73,11 @@ export const HeroImage = () => {
           }}
         >
           <Image
-            src="https://res.cloudinary.com/dreomly4m/image/upload/v1761304124/Dashboard_Hero_Image_wwmrcu.svg"
+            src={
+              theme === "dark"
+                ? "https://res.cloudinary.com/dreomly4m/image/upload/v1761304874/Hero_Dark_Mode_yctonr.svg"
+                : "https://res.cloudinary.com/dreomly4m/image/upload/v1761304873/Hero_Light_Mode_npulki.svg"
+            }
             alt="Hero Image"
             className="w-full"
             priority
