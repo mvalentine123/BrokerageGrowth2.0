@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Container } from "./container";
 import Image from "next/image";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
@@ -14,6 +14,11 @@ const springConfig = {
 export const HeroImage = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -74,12 +79,14 @@ export const HeroImage = () => {
         >
           <Image
             src={
-              theme === "dark"
-                ? "https://res.cloudinary.com/dreomly4m/image/upload/v1761304874/Hero_Dark_Mode_yctonr.svg"
-                : "https://res.cloudinary.com/dreomly4m/image/upload/v1761304873/Hero_Light_Mode_npulki.svg"
+              !mounted
+                ? "https://res.cloudinary.com/dreomly4m/image/upload/v1761304873/Hero_Light_Mode_npulki.svg"
+                : theme === "dark"
+                  ? "https://res.cloudinary.com/dreomly4m/image/upload/v1761304874/Hero_Dark_Mode_yctonr.svg"
+                  : "https://res.cloudinary.com/dreomly4m/image/upload/v1761304873/Hero_Light_Mode_npulki.svg"
             }
             alt="Hero Image"
-            className="w-full"
+            className="w-full rounded-lg"
             priority
             width={1000}
             height={1000}
