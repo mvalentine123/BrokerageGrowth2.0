@@ -48,11 +48,7 @@ export const HeroImage = () => {
     mouseY.set(0);
   };
 
-  const videoSrc = !mounted
-    ? "https://res.cloudinary.com/dreomly4m/video/upload/v1761304873/hero-video-light.mp4"
-    : theme === "dark"
-      ? "https://res.cloudinary.com/dreomly4m/video/upload/v1761304874/hero-video-dark.mp4"
-      : "https://res.cloudinary.com/dreomly4m/video/upload/v1761304873/hero-video-light.mp4";
+  const videoSrc = "https://res.cloudinary.com/dreomly4m/video/upload/v1770329439/xrevovid_omxioz.mp4";
 
   return (
     <Container className="border-divide relative flex items-start justify-start border-x bg-gray-100 p-2 perspective-distant md:p-4 lg:p-8 dark:bg-neutral-800">
