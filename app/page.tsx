@@ -4,7 +4,7 @@ import { CTA, CTAOrbit } from "@/components/cta";
 import { DivideX } from "@/components/divide";
 import { FAQs } from "@/components/faqs";
 import { Hero } from "@/components/hero";
-import { HeroImage } from "@/components/hero-image";
+import { HeroVideoDemo } from "@/components/hero-video-demo";
 import { HowItWorks } from "@/components/how-it-works";
 import { LogoCloud } from "@/components/logo-cloud";
 import { Pricing } from "@/components/pricing";
@@ -22,7 +22,7 @@ export default function Home() {
       <DivideX />
       <Hero />
       <DivideX />
-      <HeroImage />
+      <HeroVideoDemo />
       <DivideX />
       <LogoCloud />
       <DivideX />
