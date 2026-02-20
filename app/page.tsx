@@ -9,6 +9,7 @@ import { HowItWorks } from "@/components/how-it-works";
 import { LogoCloud } from "@/components/logo-cloud";
 import { Pricing } from "@/components/pricing";
 import { Security } from "@/components/security";
+import { SystemProofSection } from "@/components/system-proof-section";
 import { Testimonials } from "@/components/testimonials";
 import { UseCases } from "@/components/use-cases";
 
@@ -25,6 +26,8 @@ export default function Home() {
       <HeroImage />
       <DivideX />
       <LogoCloud />
+      <DivideX />
+      <SystemProofSection />
       <DivideX />
       <HowItWorks />
       <DivideX />
