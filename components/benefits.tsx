@@ -21,6 +21,7 @@ import { OpenAILogo, SlackLogo } from "@/icons/general";
 import { IconBlock } from "./common/icon-block";
 import { HorizontalLine } from "./common/horizontal-line";
 import { VerticalLine } from "./common/vertical-line";
+import { DiagonalHatchBackground } from "./diagonal-hatch-background";
 
 export const Benefits = () => {
   const benefits = [
@@ -63,6 +64,7 @@ export const Benefits = () => {
   ];
   return (
     <Container className="border-divide relative overflow-hidden border-x px-4 py-20 md:px-8">
+      <DiagonalHatchBackground />
       <div className="relative flex flex-col items-center">
         <Badge text="Benefits" />
         <SectionHeading className="mt-4">

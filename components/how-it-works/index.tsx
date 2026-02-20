@@ -12,6 +12,7 @@ import {
   DeployAndScaleSkeleton,
   DesignYourWorkflowSkeleton,
 } from "./skeletons";
+import { DiagonalHatchBackground } from "../diagonal-hatch-background";
 
 type Tab = {
   title: string;
@@ -62,7 +63,8 @@ export const HowItWorks = () => {
     return () => clearInterval(interval);
   }, [activeTab]);
   return (
-    <Container className="border-divide border-x">
+    <Container className="border-divide relative border-x">
+      <DiagonalHatchBackground />
       <div className="flex flex-col items-center pt-16">
         <Badge text="How it works" />
         <SectionHeading className="mt-4">Integrates easily</SectionHeading>

@@ -14,6 +14,7 @@ import {
 } from "@/icons/card-icons";
 import { Scale } from "./scale";
 import { motion } from "motion/react";
+import { DiagonalHatchBackground } from "./diagonal-hatch-background";
 
 export const UseCases = () => {
   const useCases = [
@@ -57,6 +58,7 @@ export const UseCases = () => {
   const [activeUseCase, setActiveUseCase] = useState<number | null>(null);
   return (
     <Container className="border-divide relative overflow-hidden border-x px-4 md:px-8">
+      <DiagonalHatchBackground />
       <div className="relative flex flex-col items-center py-20">
         <Badge text="Use Cases" />
         <SectionHeading className="mt-4">
