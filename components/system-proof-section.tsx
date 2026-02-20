@@ -75,9 +75,9 @@ export const SystemProofSection = () => {
           className="flex flex-col items-center text-center lg:w-1/2"
         >
           <h2 className="text-4xl font-bold leading-tight tracking-tight text-neutral-900 md:text-5xl lg:text-6xl dark:text-neutral-50">
-            Messaging isn't just about sends.
+            Messaging isn&apos;t just about sends.
             <br />
-            It's about replies.
+            It&apos;s about replies.
           </h2>
 
           <div className="mt-8 space-y-2 text-left lg:text-center">
@@ -153,7 +153,7 @@ export const SystemProofSection = () => {
             className="mt-6 space-y-2"
           >
             <p className="text-base leading-relaxed text-neutral-600 md:text-lg dark:text-neutral-300">
-              Because agencies shouldn't look like spam.
+              Because agencies shouldn&apos;t look like spam.
             </p>
             <p className="text-base leading-relaxed text-neutral-600 md:text-lg dark:text-neutral-300">
               You should look human.
