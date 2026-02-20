@@ -1,7 +1,6 @@
 "use client";
 import React, { useRef, useState, useEffect } from "react";
 import { Container } from "./container";
-import Image from "next/image";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { Dot } from "./common/dots";
 import { useTheme } from "next-themes";
@@ -13,6 +12,7 @@ const springConfig = {
 
 export const HeroImage = () => {
   const ref = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -48,6 +48,12 @@ export const HeroImage = () => {
     mouseY.set(0);
   };
 
+  const videoSrc = !mounted
+    ? "https://res.cloudinary.com/dreomly4m/video/upload/v1761304873/hero-video-light.mp4"
+    : theme === "dark"
+      ? "https://res.cloudinary.com/dreomly4m/video/upload/v1761304874/hero-video-dark.mp4"
+      : "https://res.cloudinary.com/dreomly4m/video/upload/v1761304873/hero-video-light.mp4";
+
   return (
     <Container className="border-divide relative flex items-start justify-start border-x bg-gray-100 p-2 perspective-distant md:p-4 lg:p-8 dark:bg-neutral-800">
       <Dot top left />
@@ -77,19 +83,14 @@ export const HeroImage = () => {
             translateY,
           }}
         >
-          <Image
-            src={
-              !mounted
-                ? "https://res.cloudinary.com/dreomly4m/image/upload/v1761304873/Hero_Light_Mode_npulki.svg"
-                : theme === "dark"
-                  ? "https://res.cloudinary.com/dreomly4m/image/upload/v1761304874/Hero_Dark_Mode_yctonr.svg"
-                  : "https://res.cloudinary.com/dreomly4m/image/upload/v1761304873/Hero_Light_Mode_npulki.svg"
-            }
-            alt="Hero Image"
+          <video
+            ref={videoRef}
+            src={videoSrc}
             className="w-full rounded-lg"
-            priority
-            width={1000}
-            height={1000}
+            autoPlay
+            loop
+            muted
+            playsInline
             draggable={false}
           />
         </motion.div>
