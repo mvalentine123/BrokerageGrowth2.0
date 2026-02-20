@@ -5,57 +5,98 @@ import { motion } from "motion/react";
 
 const leftCards = [
   {
-    title: "90%+",
-    subtitle: "Reply rate",
+    title: "12 Appointments",
+    subtitle: "Booked This Week",
     delay: 0.1,
+    rotation: -1.5,
   },
   {
-    title: "New inbound reply",
-    subtitle: "Qualified",
+    title: "Reply Rate",
+    subtitle: "37%",
     delay: 0.2,
+    rotation: 1,
   },
   {
-    title: "4 Live",
-    subtitle: "Conversations",
+    title: "44 Agents",
+    subtitle: "in Pipeline",
     delay: 0.3,
+    rotation: -0.5,
   },
 ];
 
 const rightCards = [
   {
-    title: "Recruiting",
-    subtitle: "Best channel wins",
+    title: "3 New Agents",
+    subtitle: "Joined",
     delay: 0.1,
+    rotation: 1.5,
   },
   {
-    title: "Conversation",
-    subtitle: "No templates. No approvals.",
+    title: "Onboarding Completion",
+    subtitle: "82%",
     delay: 0.2,
+    rotation: -1,
   },
   {
-    title: "Follow-up",
+    title: "Follow-Up Sequence",
     subtitle: "Triggered",
     delay: 0.3,
+    rotation: 0.5,
   },
 ];
 
 export const SystemProofSection = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
-    <Container className="border-divide border-x py-20 md:py-32">
-      <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-center lg:flex-row lg:items-start lg:gap-12">
-        <div className="hidden lg:flex lg:w-1/4 lg:flex-col lg:gap-4 lg:pt-32">
+    <Container className="border-divide relative overflow-hidden border-x py-20 md:py-32">
+      <div className="absolute inset-0 bg-[radial-gradient(var(--color-dots)_1px,transparent_1px)] opacity-30 [background-size:16px_16px]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/50 dark:to-neutral-900/50" />
+      <div className="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-radial from-neutral-200/20 to-transparent blur-3xl dark:from-neutral-700/10" />
+
+      <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center justify-center lg:flex-row lg:items-start lg:gap-12">
+        <div className="hidden lg:flex lg:w-1/4 lg:flex-col lg:gap-6 lg:pt-32">
           {leftCards.map((card, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 24, scale: 0.98 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{
-                duration: 0.6,
-                delay: card.delay,
-                ease: "easeOut",
+              animate={{
+                y: [0, -4, 0],
               }}
-              className="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-neutral-700 dark:bg-neutral-800"
+              transition={{
+                opacity: {
+                  duration: 0.8,
+                  delay: card.delay,
+                  ease: [0.22, 1, 0.36, 1],
+                },
+                y: {
+                  duration: 8 + index * 0.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                },
+                scale: {
+                  duration: 0.8,
+                  delay: card.delay,
+                  ease: [0.22, 1, 0.36, 1],
+                },
+              }}
+              whileHover={{
+                y: -4,
+                transition: { duration: 0.2 },
+              }}
+              style={{
+                rotate: isMobile ? 0 : card.rotation,
+              }}
+              className="group rounded-xl border border-neutral-200/80 bg-white p-6 shadow-lg shadow-neutral-200/50 transition-shadow hover:shadow-xl hover:shadow-neutral-300/50 dark:border-neutral-700/80 dark:bg-neutral-800 dark:shadow-neutral-900/50 dark:hover:shadow-neutral-900/70"
             >
               <div className="text-xl font-bold text-neutral-900 dark:text-neutral-50">
                 {card.title}
@@ -71,109 +112,109 @@ export const SystemProofSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="flex flex-col items-center text-center lg:w-1/2"
         >
-          <h2 className="text-4xl font-bold leading-tight tracking-tight text-neutral-900 md:text-5xl lg:text-6xl dark:text-neutral-50">
-            Messaging isn&apos;t just about sends.
+          <h2 className="text-[2.75rem] font-bold leading-[1.1] tracking-tight text-neutral-900 md:text-6xl lg:text-[4rem] dark:text-neutral-50">
+            Brokerages don&apos;t grow from motivation.
             <br />
-            It&apos;s about replies.
+            They grow from systems.
           </h2>
-
-          <div className="mt-8 space-y-2 text-left lg:text-center">
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-              className="text-lg leading-relaxed text-neutral-700 md:text-xl dark:text-neutral-200"
-            >
-              <span className="font-semibold text-blue-600 dark:text-blue-500">
-                iMessage
-              </span>{" "}
-              automation. 90% reply rates.
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-              className="text-lg leading-relaxed text-neutral-700 md:text-xl dark:text-neutral-200"
-            >
-              <span className="font-semibold text-green-600 dark:text-green-500">
-                SMS
-              </span>{" "}
-              without footers. No spam markers.
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-              className="text-lg leading-relaxed text-neutral-700 md:text-xl dark:text-neutral-200"
-            >
-              <span className="font-semibold text-emerald-600 dark:text-emerald-500">
-                WhatsApp
-              </span>{" "}
-              without templates. No approvals.
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
-              className="text-lg leading-relaxed text-neutral-700 md:text-xl dark:text-neutral-200"
-            >
-              <span className="font-semibold text-orange-600 dark:text-orange-500">
-                Twilio
-              </span>{" "}
-              routing. Your existing numbers.
-            </motion.p>
-          </div>
 
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
-            className="mt-8 text-xl font-semibold leading-relaxed text-neutral-900 md:text-2xl dark:text-neutral-50"
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-8 max-w-3xl text-base leading-relaxed text-neutral-600 md:text-lg dark:text-neutral-400"
           >
-            All four. Your{" "}
-            <span className="text-brand">GHL</span>. Your infrastructure.
+            The fastest-growing brokerages don&apos;t rely on hope or hustle.
+            <br />
+            They run recruiting infrastructure that turns conversations into
+            appointments,
+            <br />
+            appointments into agents, and agents into production.
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
-            className="mt-6 space-y-2"
-          >
-            <p className="text-base leading-relaxed text-neutral-600 md:text-lg dark:text-neutral-300">
-              Because agencies shouldn&apos;t look like spam.
-            </p>
-            <p className="text-base leading-relaxed text-neutral-600 md:text-lg dark:text-neutral-300">
-              You should look human.
-            </p>
-          </motion.div>
+          <div className="mt-12 space-y-4 text-left lg:text-center">
+            {[
+              {
+                text: "Recruiting",
+                highlight: true,
+                rest: " that books real conversations.",
+              },
+              {
+                text: "Follow-up",
+                highlight: true,
+                rest: " that runs daily without you chasing.",
+              },
+              {
+                text: "Onboarding",
+                highlight: true,
+                rest: " that drives week-one adoption.",
+              },
+              {
+                text: "Training",
+                highlight: true,
+                rest: " that creates production, not just completion.",
+              },
+            ].map((line, index) => (
+              <motion.p
+                key={index}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.7,
+                  delay: 0.2 + index * 0.08,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="text-lg leading-relaxed text-neutral-700 md:text-xl dark:text-neutral-300"
+              >
+                <span className="font-semibold text-orange-600 dark:text-orange-500">
+                  {line.text}
+                </span>
+                {line.rest}
+              </motion.p>
+            ))}
+          </div>
         </motion.div>
 
-        <div className="hidden lg:flex lg:w-1/4 lg:flex-col lg:gap-4 lg:pt-32">
+        <div className="hidden lg:flex lg:w-1/4 lg:flex-col lg:gap-6 lg:pt-32">
           {rightCards.map((card, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 24, scale: 0.98 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{
-                duration: 0.6,
-                delay: card.delay,
-                ease: "easeOut",
+              animate={{
+                y: [0, -4, 0],
               }}
-              className="rounded-xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-neutral-700 dark:bg-neutral-800"
+              transition={{
+                opacity: {
+                  duration: 0.8,
+                  delay: card.delay,
+                  ease: [0.22, 1, 0.36, 1],
+                },
+                y: {
+                  duration: 8 + index * 0.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                },
+                scale: {
+                  duration: 0.8,
+                  delay: card.delay,
+                  ease: [0.22, 1, 0.36, 1],
+                },
+              }}
+              whileHover={{
+                y: -4,
+                transition: { duration: 0.2 },
+              }}
+              style={{
+                rotate: isMobile ? 0 : card.rotation,
+              }}
+              className="group rounded-xl border border-neutral-200/80 bg-white p-6 shadow-lg shadow-neutral-200/50 transition-shadow hover:shadow-xl hover:shadow-neutral-300/50 dark:border-neutral-700/80 dark:bg-neutral-800 dark:shadow-neutral-900/50 dark:hover:shadow-neutral-900/70"
             >
               <div className="text-xl font-bold text-neutral-900 dark:text-neutral-50">
                 {card.title}
