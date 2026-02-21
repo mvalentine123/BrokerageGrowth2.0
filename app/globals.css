@@ -7,6 +7,10 @@
   button {
     @apply cursor-pointer;
   }
+
+  body.dark {
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255, 255, 255, 0.02) 20px, rgba(255, 255, 255, 0.02) 22px) !important;
+  }
 }
 @theme {
   --font-primary: Inter Display, sans-serif;

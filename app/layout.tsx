@@ -28,7 +28,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="font-primary h-full bg-white [--pattern-fg:var(--color-charcoal-900)]/10 dark:bg-black dark:[--pattern-fg:var(--color-neutral-100)]/30">
+      <body
+        className="font-primary h-full bg-white dark:bg-black"
+        style={{
+          backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(0, 0, 0, 0.04) 20px, rgba(0, 0, 0, 0.04) 22px)`
+        }}
+      >
         <ThemeProvider attribute="class" defaultTheme="system">
           <main className="h-full bg-white antialiased dark:bg-black">
             <Navbar />
