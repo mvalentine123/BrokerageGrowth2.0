@@ -63,6 +63,7 @@
   --dots: var(--color-gray-300);
   --line: var(--color-neutral-200);
   --footer-link: #676767;
+  --pattern-fg: rgba(0, 0, 0, 0.04);
 }
 
 .dark {
@@ -73,6 +74,7 @@
   --dots: var(--color-neutral-800);
   --line: var(--color-neutral-700);
   --footer-link: var(--color-neutral-300);
+  --pattern-fg: rgba(255, 255, 255, 0.02);
 }
 
 @theme inline {

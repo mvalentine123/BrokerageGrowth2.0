@@ -51,7 +51,12 @@ export const HeroImage = () => {
   const videoSrc = "https://res.cloudinary.com/dreomly4m/video/upload/v1770329439/xrevovid_omxioz.mp4";
 
   return (
-    <Container className="border-divide relative flex items-start justify-start border-x bg-gray-100 p-2 perspective-distant md:p-4 lg:p-8 dark:bg-neutral-800">
+    <Container className="border-divide relative flex items-start justify-start border-x p-2 perspective-distant md:p-4 lg:p-8">
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-gray-100 dark:bg-neutral-800"
+        style={{
+          backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 20px, var(--pattern-fg) 20px, var(--pattern-fg) 22px)`
+        }}
+      />
       <Dot top left />
       <Dot top right />
       <Dot bottom left />
