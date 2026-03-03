@@ -16,14 +16,13 @@ export const Hero = () => {
       <Badge text="For Established Brokerages with 40+ Agents." />
       <Heading className="mt-4">
         Install the Infrastructure <br /> Behind{" "}
-        <span className="text-brand">Brokerage Growth.</span>
+        <span className="text-brand">Brokerage Growth</span>
       </Heading>
 
       <SubHeading className="mx-auto mt-6 max-w-lg">
-        Modern brokerages don&apos;t scale through hustle. They scale through
-        systems.
+        Modern brokerages scale through systems.
         <br />
-        We install the operating system that makes growth predictable.
+        We install the infrastructure that makes growth predictable
       </SubHeading>
 
       <div className="mt-6 flex items-center gap-4">
@@ -39,42 +38,11 @@ export const Hero = () => {
         </Button>
       </div>
       <FeaturedImages
-        showStars
+        showStars={false}
         textClassName="text-center"
         className="items-center justify-center"
         containerClassName="items-center"
-        testimonials={[
-          {
-            name: "Ryan W.",
-            designation: "Broker/Owner",
-            image: "https://res.cloudinary.com/dreomly4m/image/upload/v1758993766/Ryan_Wire_5_b8tysr.jpg",
-          },
-          {
-            name: "Jose J.",
-            designation: "Broker/Owner",
-            image: "https://res.cloudinary.com/dreomly4m/image/upload/v1758288362/Copy_of_Recruitment_ads_Facebook_Ad_11_1_jcs5am.png",
-          },
-          {
-            name: "Frank P.",
-            designation: "Broker/Owner",
-            image: "https://res.cloudinary.com/dreomly4m/image/upload/v1755647958/Screenshot_2025-08-19_at_7.59.14_PM_mtoyj5.png",
-          },
-          {
-            name: "Zack O.",
-            designation: "Broker/Owner",
-            image: "https://res.cloudinary.com/dreomly4m/image/upload/v1748096685/Oppenheim_qqixkh.jpg",
-          },
-          {
-            name: "Greg G.",
-            designation: "Broker",
-            image: "https://res.cloudinary.com/dreomly4m/image/upload/v1748985530/Greg_G_w7qo1e.jpg",
-          },
-          {
-            name: "Angie D.",
-            designation: "Broker",
-            image: "https://res.cloudinary.com/dreomly4m/image/upload/v1748097303/Angie_Davis_falh7n.jpg",
-          },
-        ]}
+        testimonials={[]}
       />
     </Container>
   );
