@@ -74,15 +74,17 @@ export const FeaturedImages = ({
     x.set(event.nativeEvent.offsetX - halfWidth);
   };
 
-  useEffect(() => {
-    animate(
-      ".animation-container",
-      { scale: [1.1, 1, 0.9, 1], opacity: [0, 1] },
-      { duration: 0.4, delay: stagger(0.1) },
-    );
-  }, []);
-
   const testimonialsToUse = customTestimonials || defaultTestimonials;
+
+  useEffect(() => {
+    if (testimonialsToUse.length > 0) {
+      animate(
+        ".animation-container",
+        { scale: [1.1, 1, 0.9, 1], opacity: [0, 1] },
+        { duration: 0.4, delay: stagger(0.1) },
+      );
+    }
+  }, [testimonialsToUse]);
 
   return (
     <div
