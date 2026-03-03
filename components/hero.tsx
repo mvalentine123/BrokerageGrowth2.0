@@ -20,7 +20,7 @@ export const Hero = () => {
       </Heading>
 
       <SubHeading className="mx-auto mt-6 max-w-lg">
-        Modern brokerages don't scale through hustle. They scale through systems. We install the operating system behind predictable recruiting, structured onboarding, centralized operations, and measurable production.
+        Modern Brokerages don't scale through hustle. They scale through systems. We install the operating system behind recruiting, onboarding, and production.
       </SubHeading>
 
       <div className="mt-6 flex items-center gap-4">
