@@ -9,7 +9,6 @@ import { DivideX } from "./divide";
 import { faqs } from "@/constants/faqs";
 import { AnimatePresence, motion } from "motion/react";
 import useMeasure from "react-use-measure";
-import { DiagonalHatchBackground } from "./diagonal-hatch-background";
 
 const ChevronDownIcon = (
   props: React.SVGProps<SVGSVGElement> & { rotated?: boolean },
@@ -49,8 +48,7 @@ export const FAQs = () => {
   };
 
   return (
-    <Container className="border-divide relative flex flex-col items-center border-x pt-12">
-      <DiagonalHatchBackground />
+    <Container className="border-divide flex flex-col items-center border-x pt-12">
       <Badge text="FAQs" />
       <SectionHeading className="mt-4">
         Frequently Asked Questions

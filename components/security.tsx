@@ -6,7 +6,6 @@ import { SubHeading } from "./subheading";
 import { Button } from "./button";
 import Image from "next/image";
 import Link from "next/link";
-import { DiagonalHatchBackground } from "./diagonal-hatch-background";
 
 export const Security = () => {
   return (
@@ -17,8 +16,7 @@ export const Security = () => {
         </h2>
       </Container>
       <DivideX />
-      <Container className="border-divide relative grid grid-cols-1 border-x bg-gray-100 px-8 py-12 md:grid-cols-2 dark:bg-neutral-900">
-        <DiagonalHatchBackground />
+      <Container className="border-divide grid grid-cols-1 border-x bg-gray-100 px-8 py-12 md:grid-cols-2 dark:bg-neutral-900">
         <div>
           <SectionHeading className="text-left">
             Scale securely with confidence
