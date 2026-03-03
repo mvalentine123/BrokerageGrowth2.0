@@ -15,8 +15,8 @@ export const Hero = () => {
     <Container className="border-divide flex flex-col items-center justify-center border-x px-4 pt-10 pb-10 md:pt-32 md:pb-20">
       <Badge text="For Brokerage Owners & Team Leaders." />
       <Heading className="mt-4">
-        Grow Your Brokerage <br /> in Months{" "}
-        <span className="text-brand">Not Years</span>
+        Install the Infrastructure <br /> Behind{" "}
+        <span className="text-brand">Brokerage Growth.</span>
       </Heading>
 
       <SubHeading className="mx-auto mt-6 max-w-lg">
