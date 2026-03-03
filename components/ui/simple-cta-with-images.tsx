@@ -181,7 +181,7 @@ export const FeaturedImages = ({
           textClassName,
         )}
       >
-        Trusted by 100+ Real Estate Professionals
+        Built by operators who scaled to 100 agents in 5 months.
       </p>
     </div>
   );

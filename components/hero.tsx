@@ -13,14 +13,17 @@ import Link from "next/link";
 export const Hero = () => {
   return (
     <Container className="border-divide flex flex-col items-center justify-center border-x px-4 pt-10 pb-10 md:pt-32 md:pb-20">
-      <Badge text="For Brokerage Owners & Team Leaders." />
+      <Badge text="For Established Brokerages with 40+ Agents." />
       <Heading className="mt-4">
         Install the Infrastructure <br /> Behind{" "}
         <span className="text-brand">Brokerage Growth.</span>
       </Heading>
 
       <SubHeading className="mx-auto mt-6 max-w-lg">
-        Modern Brokerages don&apos;t scale through hustle. They scale through systems. We install the operating system behind recruiting, onboarding, and production.
+        Modern brokerages don&apos;t scale through hustle.
+        They scale through systems.
+        <br /><br />
+        We install the operating system that makes growth predictable.
       </SubHeading>
 
       <div className="mt-6 flex items-center gap-4">
