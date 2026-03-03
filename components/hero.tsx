@@ -25,16 +25,13 @@ export const Hero = () => {
         We install the infrastructure that makes growth predictable
       </SubHeading>
 
-      <div className="mt-6 flex items-center gap-4">
+      <div className="mt-6 flex items-center justify-center">
         <Button
           data-cal-namespace="zoom"
           data-cal-link="mvalentine/zoom"
           data-cal-config='{"layout":"month_view"}'
         >
-          Book a Call
-        </Button>
-        <Button variant="secondary" as={Link} href="/pricing">
-          View pricing
+          Schedule an Infrastructure Review
         </Button>
       </div>
       <FeaturedImages
