@@ -23,7 +23,6 @@ export const Hero = () => {
         Modern brokerages don&apos;t scale through hustle. They scale through
         systems.
         <br />
-        <br />
         We install the operating system that makes growth predictable.
       </SubHeading>
 
