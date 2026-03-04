@@ -86,7 +86,14 @@ export const Footer = () => {
           <SubHeading as="p" className="mt-4 max-w-lg text-left">
             Manage and simulate agentic workflows
           </SubHeading>
-          <Button className="mt-4 mb-8 lg:mb-0">Start building</Button>
+          <Button
+            data-cal-namespace="zoom"
+            data-cal-link="mvalentine/zoom"
+            data-cal-config='{"layout":"month_view"}'
+            className="mt-4 mb-8 lg:mb-0"
+          >
+            Schedule a Review
+          </Button>
         </div>
         <div className="col-span-1 mb-4 flex flex-col gap-2 md:col-span-1 md:mb-0">
           <p className="text-sm font-medium text-gray-600">Product</p>

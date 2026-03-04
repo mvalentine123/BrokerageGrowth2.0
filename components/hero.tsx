@@ -31,7 +31,7 @@ export const Hero = () => {
           data-cal-link="mvalentine/zoom"
           data-cal-config='{"layout":"month_view"}'
         >
-          Schedule an Infrastructure Review
+          Schedule a Review
         </Button>
       </div>
       <FeaturedImages

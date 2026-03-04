@@ -36,8 +36,13 @@ export const CTA = () => {
       <SectionHeading className="relative z-10 text-center lg:text-6xl">
         Connect your Current Stack <br /> and Start Automating
       </SectionHeading>
-      <Button as={Link} href="/sign-up" className="relative z-20 mt-4">
-        Start Building for Free
+      <Button
+        data-cal-namespace="zoom"
+        data-cal-link="mvalentine/zoom"
+        data-cal-config='{"layout":"month_view"}'
+        className="relative z-20 mt-4"
+      >
+        Schedule a Review
       </Button>
     </Container>
   );

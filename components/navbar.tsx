@@ -106,7 +106,7 @@ const MobileNav = ({ items }: { items: { title: string; href: string }[] }) => {
                   data-cal-config='{"layout":"month_view"}'
                   className="w-full"
                 >
-                  Book a Call
+                  Schedule a Review
                 </Button>
               </div>
             </div>
@@ -143,7 +143,7 @@ const DesktopNav = ({
           data-cal-link="mvalentine/zoom"
           data-cal-config='{"layout":"month_view"}'
         >
-          Book a Call
+          Schedule a Review
         </Button>
       </div>
     </div>
@@ -188,7 +188,7 @@ const FloatingNav = ({
           data-cal-link="mvalentine/zoom"
           data-cal-config='{"layout":"month_view"}'
         >
-          Book a Call
+          Schedule a Review
         </Button>
       </div>
     </motion.div>
