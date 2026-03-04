@@ -23,25 +23,25 @@ type Tab = {
 export const HowItWorks = () => {
   const tabs = [
     {
-      title: "Design your Workflow",
+      title: "Predictable Agent Recruiting",
       description:
-        "A drag-and-drop interface to create, connect, and configure agents into logical workflows",
+        "Inbound recruiting infrastructure that consistently generates conversations with agents already exploring new brokerages.",
       icon: FirstIcon,
       id: "workflow",
       skeleton: <DesignYourWorkflowSkeleton />,
     },
     {
-      title: "Connect your Tools",
+      title: "Automated Agent Onboarding",
       description:
-        "Agents operate independently and coordinate tasks to complete all complex goals together",
+        "New agents move from signed to operational without manual checklists, emails, or leadership bottlenecks.",
       icon: SecondIcon,
       id: "tools",
       skeleton: <ConnectYourTooklsSkeleton />,
     },
     {
-      title: "Deploy & Scale",
+      title: "The Brokerage Virtual Office",
       description:
-        "Run agent workflows in a sandbox to preview behavior, debug logic, and test interactions",
+        "A centralized hub where agents access training, resources, operations, and support without constant leadership intervention.",
       icon: ThirdIcon,
       id: "deploy",
       skeleton: <DeployAndScaleSkeleton />,
@@ -65,11 +65,10 @@ export const HowItWorks = () => {
     <Container className="border-divide border-x">
       <div className="flex flex-col items-center pt-16">
         <Badge text="How it works" />
-        <SectionHeading className="mt-4">Integrates easily</SectionHeading>
+        <SectionHeading className="mt-4">The Brokerage Operating System</SectionHeading>
 
         <SubHeading as="p" className="mx-auto mt-6 max-w-lg">
-          We empower developers and technical teams to create, simulate, and
-          manage AI-driven workflows visually
+          Install the infrastructure behind predictable recruiting, structured onboarding, and agent production
         </SubHeading>
         {/* Desktop Tabs */}
         <div className="border-divide divide-divide mt-16 hidden w-full grid-cols-2 divide-x border-t lg:grid">
