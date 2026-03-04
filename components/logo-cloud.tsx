@@ -20,38 +20,11 @@ export const LogoCloud = () => {
     setMounted(true);
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const notDisplayedIndices = logos
-        .map((_, index) => index)
-        .filter((index) => !displayedIndices.includes(index));
-
-      if (notDisplayedIndices.length > 0) {
-        const randomDisplayedIndex = Math.floor(
-          Math.random() * displayedIndices.length,
-        );
-        const positionToReplace = randomDisplayedIndex;
-
-        const randomNotDisplayedIndex = Math.floor(
-          Math.random() * notDisplayedIndices.length,
-        );
-        const newLogoIndex = notDisplayedIndices[randomNotDisplayedIndex];
-
-        setDisplayedIndices((prev) => {
-          const newIndices = [...prev];
-          newIndices[positionToReplace] = newLogoIndex;
-          return newIndices;
-        });
-      }
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [displayedIndices, logos]);
 
   return (
     <Container className="border-divide border-x">
       <h2 className="py-8 text-center font-mono text-sm tracking-tight text-neutral-500 uppercase dark:text-gray-300">
-        Trusted by Leading Real Estate Brokerages
+        Installed in Leading Real Estate Brokerages
       </h2>
       <div className="border-divide grid grid-cols-2 border-t md:grid-cols-4">
         {displayedIndices.map((logoIndex, position) => {
@@ -71,40 +44,16 @@ export const LogoCloud = () => {
               )}
             >
               <div className="animate-move-left-to-right bg-brand/5 absolute inset-x-0 bottom-0 h-full translate-y-full transition-all duration-200 group-hover:translate-y-0"></div>
-              <AnimatePresence initial={false} mode="wait">
-                <motion.div
-                  key={logoIndex}
-                  className="group flex min-h-32 items-center justify-center p-4 py-10"
-                  initial={{
-                    y: 100,
-                    opacity: 0,
-                  }}
-                  animate={{
-                    y: 0,
-                    opacity: 1,
-                  }}
-                  exit={{
-                    opacity: 0,
-                    y: -100,
-                  }}
-                  transition={{
-                    duration: 0.2,
-                    ease: "easeInOut",
-                  }}
-                  whileHover={{
-                    opacity: 1,
-                  }}
-                >
-                  <motion.img
-                    src={mounted && (resolvedTheme === "dark" || theme === "dark") && logo.srcDark ? logo.srcDark : logo.src}
-                    alt={logo.title}
-                    className={cn(
-                      "h-8 w-auto object-contain transition-all duration-500",
-                      logo.className,
-                    )}
-                  />
-                </motion.div>
-              </AnimatePresence>
+              <div className="group flex min-h-32 items-center justify-center p-4 py-10">
+                <img
+                  src={mounted && (resolvedTheme === "dark" || theme === "dark") && logo.srcDark ? logo.srcDark : logo.src}
+                  alt={logo.title}
+                  className={cn(
+                    "h-8 w-auto object-contain transition-all duration-500",
+                    logo.className,
+                  )}
+                />
+              </div>
             </div>
           );
         })}
