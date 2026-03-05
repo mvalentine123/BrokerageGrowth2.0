@@ -33,7 +33,7 @@ export const HowItWorks = () => {
     {
       title: "Automated Agent Onboarding",
       description:
-        "New agents move from signed to operational without manual checklists, emails, or leadership bottlenecks.",
+        "New agents move from signed to fully operational automatically — documents collected, systems configured, and training assigned without manual follow-ups.",
       icon: SecondIcon,
       id: "tools",
       skeleton: <ConnectYourTooklsSkeleton />,

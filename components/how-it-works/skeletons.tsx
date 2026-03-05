@@ -64,7 +64,7 @@ export const DesignYourWorkflowSkeleton = () => {
 };
 
 export const ConnectYourTooklsSkeleton = () => {
-  const text = `Write the first and second rule of it using Claude and ChatGPT.`;
+  const text = `Collect W9, setup brokerage email, create CRM account, configure signature`;
   const [mounted, setMounted] = useState(false);
   const randomWidth = useMemo(() => Math.random() * 100, [mounted]);
 
@@ -89,7 +89,7 @@ export const ConnectYourTooklsSkeleton = () => {
         <div className="mt-12 flex items-center gap-2">
           <IntegrationsLogo />
           <span className="text-charcoal-700 text-sm font-medium dark:text-neutral-200">
-            Tasks
+            Onboarding Tasks
           </span>
         </div>
         <DivideX className="mt-2" />
@@ -165,10 +165,7 @@ export const ConnectYourTooklsSkeleton = () => {
         <div className="mt-12 flex items-center gap-2">
           <IntegrationsLogo className="dark:text-neutral-200" />
           <span className="text-charcoal-700 text-xs font-medium md:text-sm dark:text-neutral-200">
-            Integrations
-          </span>
-          <span className="text-charcoal-700 rounded-lg border border-gray-200 bg-gray-50 px-2 py-0.5 text-xs dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-200">
-            200
+            Systems Setup
           </span>
         </div>
         <DivideX className="mt-2" />
@@ -176,24 +173,24 @@ export const ConnectYourTooklsSkeleton = () => {
           <div className="flex items-center gap-2">
             <OpenAILogo className="h-4 w-4 shrink-0" />
             <span className="text-charcoal-700 text-xs font-medium md:text-sm dark:text-neutral-200">
-              ChatGPT
+              CRM Access
             </span>
           </div>
 
           <div className="rounded-sm border border-blue-500 bg-blue-50 px-2 py-0.5 text-xs text-blue-500">
-            Connected
+            Active
           </div>
         </div>
         <div className="mt-4 flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <AnthropicLogo className="h-4 w-4 shrink-0" />
             <span className="text-charcoal-700 text-xs font-medium md:text-sm dark:text-neutral-200">
-              Claude 4 Opus
+              Brokerage Email
             </span>
           </div>
 
           <div className="rounded-sm border border-blue-500 bg-blue-50 px-2 py-0.5 text-xs text-blue-500">
-            Connected
+            Active
           </div>
         </div>
         <div className="mt-2 flex flex-col">
