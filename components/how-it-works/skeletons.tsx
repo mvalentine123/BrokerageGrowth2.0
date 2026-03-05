@@ -173,7 +173,13 @@ export const ConnectYourTooklsSkeleton = () => {
         <DivideX className="mt-2" />
         <div className="mt-4 flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <FollowUpBossLogo className="h-4 w-4 shrink-0" />
+            <Image
+              src="/logos/FUB_Logo_Mark_RGB_Fub_Logo_Mark_Main.png"
+              alt="Follow Up Boss"
+              width={16}
+              height={16}
+              className="h-4 w-4 shrink-0"
+            />
             <span className="text-charcoal-700 text-xs font-medium md:text-sm dark:text-neutral-200">
               CRM Access
             </span>
