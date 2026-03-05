@@ -5,6 +5,8 @@ import {
   MetaLogo,
   OpenAILogo,
   SlackLogo,
+  GmailLogo,
+  FollowUpBossLogo,
 } from "@/icons/general";
 import { agents } from "@/constants/agents";
 import Image from "next/image";
@@ -171,7 +173,7 @@ export const ConnectYourTooklsSkeleton = () => {
         <DivideX className="mt-2" />
         <div className="mt-4 flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <OpenAILogo className="h-4 w-4 shrink-0" />
+            <FollowUpBossLogo className="h-4 w-4 shrink-0" />
             <span className="text-charcoal-700 text-xs font-medium md:text-sm dark:text-neutral-200">
               CRM Access
             </span>
@@ -183,7 +185,7 @@ export const ConnectYourTooklsSkeleton = () => {
         </div>
         <div className="mt-4 flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <AnthropicLogo className="h-4 w-4 shrink-0" />
+            <GmailLogo className="h-4 w-4 shrink-0" />
             <span className="text-charcoal-700 text-xs font-medium md:text-sm dark:text-neutral-200">
               Brokerage Email
             </span>

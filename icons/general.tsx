@@ -41,6 +41,60 @@ export const GoogleLogo = (props: React.HTMLAttributes<HTMLDivElement>) => {
   );
 };
 
+export const GmailLogo = (props: React.SVGProps<SVGSVGElement>) => {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L12 9.548l8.073-6.055C21.69 2.28 24 3.434 24 5.457z"
+        fill="#EA4335"
+      />
+      <path
+        d="M0 5.457v.727l12 9 12-9v-.727c0-2.023-2.309-3.178-3.927-1.964L12 9.548 3.927 3.493C2.31 2.28 0 3.434 0 5.457z"
+        fill="#EA4335"
+      />
+      <path
+        d="M18.545 21.002h3.819c.904 0 1.636-.732 1.636-1.636v-7.637l-5.455 4.091v5.182z"
+        fill="#34A853"
+      />
+      <path
+        d="M0 11.729v7.637c0 .904.732 1.636 1.636 1.636h3.819v-5.182L0 11.729z"
+        fill="#FBBC04"
+      />
+      <path
+        d="M18.545 11.729l5.455-4.091v-.727c0-2.023-2.309-3.178-3.927-1.964L12 9.548v7.092l6.545-4.911z"
+        fill="#4285F4"
+      />
+      <path
+        d="M0 6.911v4.818l5.455 4.091L12 11.729V9.548L3.927 3.493C2.31 2.28 0 3.434 0 5.457v1.454z"
+        fill="#C5221F"
+      />
+    </svg>
+  );
+};
+
+export const FollowUpBossLogo = (props: React.SVGProps<SVGSVGElement>) => {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <rect width="24" height="24" rx="4" fill="#00A4E0" />
+      <path
+        d="M7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h6v2H7v-2z"
+        fill="white"
+      />
+      <circle cx="16" cy="16" r="2.5" fill="white" />
+    </svg>
+  );
+};
+
 export const GartnerLogo = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
