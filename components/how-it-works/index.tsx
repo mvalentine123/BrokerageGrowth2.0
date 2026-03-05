@@ -28,7 +28,7 @@ export const HowItWorks = () => {
         "Inbound recruiting infrastructure that consistently generates conversations with agents already exploring new brokerages.",
       icon: FirstIcon,
       id: "workflow",
-      skeleton: <DesignYourWorkflowSkeleton />,
+      skeleton: <DeployAndScaleSkeleton />,
     },
     {
       title: "Automated Agent Onboarding",
@@ -44,7 +44,7 @@ export const HowItWorks = () => {
         "A centralized hub where agents access training, resources, operations, and support without constant leadership intervention.",
       icon: ThirdIcon,
       id: "deploy",
-      skeleton: <DeployAndScaleSkeleton />,
+      skeleton: <DesignYourWorkflowSkeleton />,
     },
   ];
 
