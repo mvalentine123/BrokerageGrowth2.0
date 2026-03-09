@@ -31,7 +31,7 @@ export const HowItWorks = () => {
       skeleton: <DeployAndScaleSkeleton />,
     },
     {
-      title: "Automated Agent Onboarding",
+      title: "Agent Onboarding",
       description:
         "New agents move from signed to fully operational automatically — documents collected, systems configured, and training assigned without manual follow-ups.",
       icon: SecondIcon,
@@ -39,7 +39,7 @@ export const HowItWorks = () => {
       skeleton: <ConnectYourTooklsSkeleton />,
     },
     {
-      title: "The Brokerage Virtual Office",
+      title: "Virtual Office",
       description:
         "A centralized hub where agents access training, resources, operations, and support without constant leadership intervention.",
       icon: ThirdIcon,
@@ -63,8 +63,8 @@ export const HowItWorks = () => {
   }, [activeTab]);
   return (
     <Container className="border-divide border-x">
-      <div className="flex flex-col items-center pt-16">
-        <Badge text="How it works" />
+      <div id="overview" className="flex flex-col items-center scroll-mt-20 pt-16">
+        <Badge text="Overview" />
         <SectionHeading className="mt-4">The Brokerage Operating System</SectionHeading>
 
         <SubHeading as="p" className="mx-auto mt-6 max-w-lg">

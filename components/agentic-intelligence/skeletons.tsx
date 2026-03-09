@@ -22,30 +22,30 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useTypewriter } from "@/hooks/use-typewriter";
-import { LogoSVG } from "../logo";
 import { IconBlock } from "../common/icon-block";
 
+const APPLICANT_SOURCES = [
+  {
+    name: "Google",
+    iconSrc: "https://res.cloudinary.com/dreomly4m/image/upload/v1772992818/google_4_mfvkyh.png",
+    status: "Connected",
+    variant: "success",
+  },
+  {
+    name: "LinkedIn",
+    iconSrc: "https://res.cloudinary.com/dreomly4m/image/upload/v1772992751/linkedin_1_nseej8.png",
+    status: "Connected",
+    variant: "success",
+  },
+  {
+    name: "Meta",
+    logo: MetaLogo,
+    status: "Connected",
+    variant: "success",
+  },
+] as const;
+
 export const LLMModelSelectorSkeleton = () => {
-  const models = [
-    {
-      name: "Claude 4 Opus",
-      logo: AnthropicLogo,
-      status: "Unavailable",
-      variant: "danger",
-    },
-    {
-      name: "ChatGPT",
-      logo: OpenAILogo,
-      status: "Connected",
-      variant: "success",
-    },
-    {
-      name: "Llama 3.2",
-      logo: MetaLogo,
-      status: "Waiting",
-      variant: "warning",
-    },
-  ];
   return (
     <motion.div className="relative mx-auto mt-20 h-full max-h-70 min-h-40 w-[85%] rounded-2xl border-t border-gray-300 bg-white p-4 shadow-2xl dark:border-neutral-700 dark:bg-neutral-800">
       <motion.div
@@ -57,14 +57,19 @@ export const LLMModelSelectorSkeleton = () => {
       >
         <div className="flex w-full items-center justify-between p-2">
           <div className="flex items-center gap-2 font-medium">
-            <OpenAILogo />
-            Open AI
+            <Image
+              src="https://res.cloudinary.com/dreomly4m/image/upload/v1748120226/BI_Dark_o79vzm.png"
+              alt="Brokerage Insight"
+              width={16}
+              height={16}
+              className="h-4 w-4 shrink-0 object-contain"
+            />
+            Brokerage Insight
           </div>
-          <p className="font-mono text-gray-600">GPT 5</p>
         </div>
         <DivideX />
         <div className="m-2 rounded-sm border border-blue-500 bg-blue-50 px-2 py-0.5 text-blue-500 dark:bg-blue-50/10">
-          Connected
+          Active
         </div>
       </motion.div>
       <div className="mb-4 flex gap-2">
@@ -75,14 +80,14 @@ export const LLMModelSelectorSkeleton = () => {
       <div className="mt-12 flex items-center gap-2">
         <IntegrationsLogo />
         <span className="text-charcoal-700 text-sm font-medium dark:text-neutral-200">
-          All Models
+          All Applicants
         </span>
         <span className="text-charcoal-700 rounded-lg border border-gray-200 bg-gray-50 px-2 py-0.5 text-xs dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-200">
-          69,420
+          247
         </span>
       </div>
       <DivideX className="mt-2" />
-      {models.map((model, index) => (
+      {APPLICANT_SOURCES.map((model, index) => (
         <div className="relative" key={model.name + index}>
           <motion.div
             key={model.name + index}
@@ -97,7 +102,17 @@ export const LLMModelSelectorSkeleton = () => {
             }}
           >
             <div className="flex items-center gap-2">
-              <model.logo className="h-4 w-4 shrink-0" />
+              {"iconSrc" in model ? (
+                <Image
+                  src={model.iconSrc}
+                  alt={model.name}
+                  width={16}
+                  height={16}
+                  className="h-4 w-4 shrink-0 object-contain"
+                />
+              ) : (
+                <model.logo className="h-4 w-4 shrink-0" />
+              )}
               <span className="text-charcoal-700 text-sm font-medium dark:text-neutral-200">
                 {model.name}
               </span>
@@ -108,10 +123,6 @@ export const LLMModelSelectorSkeleton = () => {
                 "rounded-sm border px-2 py-0.5 text-xs",
                 model.variant === "success" &&
                   "border-emerald-500 bg-emerald-50 text-emerald-500 dark:bg-emerald-50/10",
-                model.variant === "warning" &&
-                  "border-yellow-500 bg-yellow-50 text-yellow-500 dark:bg-yellow-50/10",
-                model.variant === "danger" &&
-                  "border-red-500 bg-red-50 text-red-500 dark:bg-red-50/10",
               )}
             >
               {model.status}
@@ -189,20 +200,19 @@ export const TextToWorkflowBuilderSkeleton = () => {
   const initialChat = [
     {
       role: "user",
-      content: "Hello, how are you?",
+      content: "I'm exploring new brokerages in Austin.",
     },
     {
       role: "assistant",
-      content: "I'm good, thank you! How can I help you today?",
+      content: "Happy to help. Are you currently with a brokerage?",
     },
     {
       role: "user",
-      content:
-        "I want to create a workflow that will send an email to all my clients",
+      content: "Yes, I'm with eXp.",
     },
     {
       role: "assistant",
-      content: "Nah, do it yourself.",
+      content: "Great. Here's a link to schedule a quick intro call.",
     },
   ];
 
@@ -210,19 +220,15 @@ export const TextToWorkflowBuilderSkeleton = () => {
   const [inputText, setInputText] = useState("");
   const [visibleMessages, setVisibleMessages] = useState(0);
   const [currentMessageComplete, setCurrentMessageComplete] = useState(false);
+  const [showOutcomeCard, setShowOutcomeCard] = useState(false);
   const [chatContainerRef, setChatContainerRef] =
     useState<HTMLDivElement | null>(null);
 
   const INITIAL_DELAY = 200;
   const MESSAGE_DELAY = 400;
-  const RANDOM_MESSAGES = [
-    "Do you really think I was gonna answer?",
-    "I'm not a real assistant, I'm just a skeleton",
-    "Meri ek taang nakli hai, mai hockey ka bohot bada khiladi tha. Ek din Uday bhai ko meri kisi baat pe gussa aagaya aur mere hi hockey se meri taang ke do tukde kar diye. Lekin dil ke bohot ache hain, fauran mujhe hospital le gaye aur ye nakli taang lagwayi",
-    "Mimicking chat here, this isn't real.",
-    "Bro stop.",
-    "Main langotiya jeetu ka mara hua yaar bol rha hoon.",
-  ];
+  const OUTCOME_CARD_DELAY = 600;
+  const USER_MESSAGE_RESPONSE =
+    "Nice try 😄\n\nThis is a demo of automated recruiting conversations. The system turns agent inquiries into booked intro calls.";
 
   const handleSendMessage = () => {
     if (inputText.trim()) {
@@ -234,8 +240,7 @@ export const TextToWorkflowBuilderSkeleton = () => {
         },
         {
           role: "assistant",
-          content:
-            RANDOM_MESSAGES[Math.floor(Math.random() * RANDOM_MESSAGES.length)],
+          content: USER_MESSAGE_RESPONSE,
         },
       ];
       setChat(newMessages);
@@ -271,13 +276,26 @@ export const TextToWorkflowBuilderSkeleton = () => {
   }, [currentMessageComplete, visibleMessages, chat.length]);
 
   useEffect(() => {
+    if (
+      visibleMessages === chat.length &&
+      visibleMessages > 0 &&
+      currentMessageComplete
+    ) {
+      const timer = setTimeout(() => {
+        setShowOutcomeCard(true);
+      }, OUTCOME_CARD_DELAY);
+      return () => clearTimeout(timer);
+    }
+  }, [visibleMessages, chat.length, currentMessageComplete]);
+
+  useEffect(() => {
     if (chatContainerRef) {
       chatContainerRef.scrollTo({
         top: chatContainerRef.scrollHeight,
         behavior: "smooth",
       });
     }
-  }, [visibleMessages, chatContainerRef]);
+  }, [visibleMessages, showOutcomeCard, chatContainerRef]);
 
   return (
     <motion.div className="relative mx-auto mt-2 h-full max-h-70 min-h-40 w-[85%] p-4">
@@ -288,7 +306,7 @@ export const TextToWorkflowBuilderSkeleton = () => {
           onChange={(e) => setInputText(e.target.value)}
           onKeyPress={handleKeyPress}
           className="flex-1 border-none px-4 py-4 text-xs placeholder-neutral-600 focus:outline-none"
-          placeholder="Ask Notus AI"
+          placeholder="Message the Brokerage…"
         />
         <div className="mr-4 flex items-center gap-2">
           <AttachmentIcon />
@@ -328,6 +346,21 @@ export const TextToWorkflowBuilderSkeleton = () => {
             )}
           </motion.div>
         ))}
+        {showOutcomeCard && (
+          <motion.div
+            initial={{ opacity: 0, y: 12, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            className="mt-2 w-fit rounded-lg border border-emerald-200 bg-emerald-50/80 px-4 py-3 shadow-sm dark:border-emerald-800 dark:bg-emerald-950/40"
+          >
+            <p className="text-sm font-semibold text-emerald-800 dark:text-emerald-200">
+              Intro Call Booked
+            </p>
+            <p className="mt-0.5 text-xs text-emerald-700 dark:text-emerald-300">
+              Tuesday 2:30 PM
+            </p>
+          </motion.div>
+        )}
       </div>
     </motion.div>
   );
@@ -361,13 +394,13 @@ const UserMessage = ({
           {isActive && !isComplete && <span className="animate-pulse">|</span>}
         </div>
       </div>
-      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-blue-600 text-xs font-medium text-white">
+      <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-blue-500 to-blue-600 text-xs font-medium text-white">
         <Image
-          src="/avatar.webp"
-          alt="user"
+          src="https://res.cloudinary.com/dreomly4m/image/upload/v1765512838/Gracee-Headshot_fyksbm.jpg"
+          alt="Agent"
           width={32}
           height={32}
-          className="rounded-full"
+          className="h-8 w-8 rounded-full object-cover"
         />
       </div>
     </div>
@@ -396,11 +429,17 @@ const AssistantMessage = ({
 
   return (
     <div className="flex gap-3 px-1">
-      <div className="shadow-aceternity flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white text-xs font-medium text-white dark:bg-neutral-900">
-        <LogoSVG className="size-4 text-black dark:text-white" />
+      <div className="shadow-aceternity flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white dark:bg-neutral-900">
+        <Image
+          src="https://res.cloudinary.com/dreomly4m/image/upload/v1748120226/BI_Dark_o79vzm.png"
+          alt="Brokerage"
+          width={32}
+          height={32}
+          className="h-8 w-8 rounded-full object-contain"
+        />
       </div>
       <div className="flex max-w-xs flex-col gap-1">
-        <div className="text-charcoal-700 rounded-2xl rounded-bl-md bg-gray-100 px-4 py-2 text-sm">
+        <div className="text-charcoal-700 rounded-2xl rounded-bl-md bg-gray-100 px-4 py-2 text-sm whitespace-pre-line">
           {isActive ? displayText : content}
           {isActive && !isComplete && <span className="animate-pulse">|</span>}
         </div>
@@ -424,13 +463,13 @@ export const NativeToolsIntegrationSkeleton = () => {
       <motion.div className="relative mx-auto my-12 hidden h-full max-h-70 min-h-80 max-w-[67rem] grid-cols-2 p-4 lg:grid">
         <div className="flex items-center justify-between">
           <div className="flex flex-col gap-10">
-            <TextIconBlock icon={<WindowIcon />} text="Meeting Summarizer">
+            <TextIconBlock icon={<WindowIcon />} text="Discovery Call">
               <TopSVG className="absolute top-2 -right-84" />
             </TextIconBlock>
-            <TextIconBlock icon={<CodeIcon />} text="Code Reviewer">
+            <TextIconBlock icon={<CodeIcon />} text="Agent Joins">
               <MiddleSVG className="absolute top-2 -right-84" />
             </TextIconBlock>
-            <TextIconBlock icon={<PhoneIcon />} text="Customer Support">
+            <TextIconBlock icon={<PhoneIcon />} text="Onboarding Activated">
               <BottomSVG className="absolute -right-84 bottom-2" />
             </TextIconBlock>
           </div>
@@ -438,7 +477,13 @@ export const NativeToolsIntegrationSkeleton = () => {
             <div className="absolute inset-0 scale-[1.4] animate-spin rounded-full bg-conic [background-image:conic-gradient(at_center,transparent,var(--color-blue-500)_20%,transparent_30%)] [animation-duration:2s]"></div>
             <div className="absolute inset-0 scale-[1.4] animate-spin rounded-full [background-image:conic-gradient(at_center,transparent,var(--color-brand)_20%,transparent_30%)] [animation-delay:1s] [animation-duration:2s]"></div>
             <div className="relative z-20 flex h-full w-full items-center justify-center rounded-[5px] bg-white dark:bg-neutral-900">
-              <LogoSVG className="text-black dark:text-white" />
+              <Image
+                src="https://res.cloudinary.com/dreomly4m/image/upload/v1748120226/BI_Dark_o79vzm.png"
+                alt="Brokerage Insight"
+                width={24}
+                height={24}
+                className="h-6 w-6 shrink-0 object-contain"
+              />
             </div>
           </div>
         </div>

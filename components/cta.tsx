@@ -29,20 +29,39 @@ export type CTAOrbitProps = {
   numRings?: number;
 };
 
-export const CTA = () => {
+export type CTAProps = {
+  heading?: React.ReactNode;
+  subheading?: string;
+  buttonText?: string;
+};
+
+export const CTA = ({
+  heading = (
+    <>
+      Install the Infrastructure <br /> Behind Brokerage Growth
+    </>
+  ),
+  subheading,
+  buttonText = "Schedule a Review",
+}: CTAProps = {}) => {
   return (
     <Container className="border-divide relative flex min-h-60 flex-col items-center justify-center overflow-hidden border-x px-4 py-4 md:min-h-120">
       <CTAOrbit className="absolute inset-x-0 -top-120 mask-b-from-30%" />
       <SectionHeading className="relative z-10 text-center lg:text-6xl">
-        Connect your Current Stack <br /> and Start Automating
+        {heading}
       </SectionHeading>
+      {subheading && (
+        <p className="relative z-10 mt-4 max-w-xl text-center text-base text-gray-600 dark:text-neutral-400">
+          {subheading}
+        </p>
+      )}
       <Button
         data-cal-namespace="zoom"
         data-cal-link="mvalentine/zoom"
         data-cal-config='{"layout":"month_view"}'
         className="relative z-20 mt-4"
       >
-        Schedule a Review
+        {buttonText}
       </Button>
     </Container>
   );

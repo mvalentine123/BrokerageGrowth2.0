@@ -1,0 +1,46 @@
+replicaCount: 2
+
+image:
+  repository: ghcr.io/your-org/nextjs-app
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 3000
+
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+  hosts:
+    - host: nextjs.example.com
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: nextjs-app-tls
+      hosts:
+        - nextjs.example.com
+
+resources:
+  requests:
+    memory: "64Mi"
+    cpu: "100m"
+  limits:
+    memory: "256Mi"
+    cpu: "250m"
+
+nextjs:
+  env: {}
+  # Example: NODE_ENV: production
+
+# Kubernetes Secret for sensitive env vars (base64-encoded values in data)
+secrets:
+  enabled: false
+  data: {}
+  # Example - add base64-encoded values:
+  # API_KEY: "bG9uc3VwcGxpZXN0"
+  # DATABASE_URL: "cG9zdGdyZXM6Ly8uLi4="

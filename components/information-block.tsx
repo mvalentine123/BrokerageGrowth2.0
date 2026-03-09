@@ -12,27 +12,27 @@ import {
 export const InformationBlock = () => {
   const useCases = [
     {
-      title: "Complete Ownership",
+      title: "Operator Built",
       description:
-        "Take full control of your AI agents and workflows with comprehensive ownership and customization options",
+        "Built by brokerage owners who have actually recruited and scaled real teams.",
       icon: <CloudCheckIcon className="text-brand size-6" />,
     },
     {
-      title: "High-Paced",
+      title: "Systems That Actually Work",
       description:
-        "Build and deploy autonomous agents rapidly with our streamlined development environment",
+        "Every system we install was developed inside real brokerage operations.",
       icon: <BoltIcon className="text-brand size-6" />,
     },
     {
-      title: "Absolute Integrity",
+      title: "Real Estate Is Different",
       description:
-        "Ensure reliable and secure agent operations with built-in safety measures and transparent processes",
+        "Most real estate technology companies have never operated a brokerage.",
       icon: <ShieldSplitIcon className="text-brand size-6" />,
     },
     {
-      title: "Meaningful Impact",
+      title: "Abundance Mindset",
       description:
-        "Create AI solutions that drive real business value and transform how your team works",
+        "We believe there is enough business for every brokerage that installs the right systems.",
       icon: <SparklesIcon className="text-brand size-6" />,
     },
   ];

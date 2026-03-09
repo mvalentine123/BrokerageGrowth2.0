@@ -101,7 +101,7 @@ export const Card = ({
             tone === "danger" &&
               "border-orange-500 bg-red-50 text-orange-500 dark:bg-red-50/10 dark:text-red-500",
             tone === "success" &&
-              "border-neutral-500 bg-neutral-50 text-neutral-500 dark:bg-neutral-50/10 dark:text-neutral-500",
+              "border-emerald-500 bg-emerald-50 text-emerald-500 dark:bg-emerald-50/10 dark:text-emerald-500",
           )}
         >
           {cta}

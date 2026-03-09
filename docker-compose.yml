@@ -1,0 +1,21 @@
+services:
+  ghproxy:
+    image: lank/ghproxy
+    volumes:
+      - ./config.yml:/app/config.yml
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - ghproxy
+      - fastapi_app
+    restart: unless-stopped
+
+  fastapi_app:
+    build: ./fastapi-app
+    restart: unless-stopped

@@ -1,36 +1,37 @@
 import React from "react";
+import { Badge } from "./badge";
 import { Container } from "./container";
 import { DivideX } from "./divide";
 import { SectionHeading } from "./seciton-heading";
 import { SubHeading } from "./subheading";
 import { Button } from "./button";
 import Image from "next/image";
-import Link from "next/link";
 
 export const Security = () => {
   return (
     <>
-      <Container className="border-divide border-x">
-        <h2 className="pt-10 pb-5 text-center font-mono text-sm tracking-tight text-neutral-500 uppercase md:pt-20 md:pb-10 dark:text-neutral-400">
-          FOR SECURITY FIRST TEAMS
-        </h2>
+      <Container className="border-divide flex flex-col items-center border-x pt-10 pb-5 md:pt-20 md:pb-10">
+        <Badge text="Let's Connect" />
       </Container>
       <DivideX />
       <Container className="border-divide grid grid-cols-1 border-x bg-gray-100 px-8 py-12 md:grid-cols-2 dark:bg-neutral-900">
         <div>
           <SectionHeading className="text-left">
-            Scale securely with confidence
+            Let's Chat Growth
           </SectionHeading>
           <SubHeading as="p" className="mt-4 text-left">
-            Our AI assistant is designed with enterprise-grade security
-            practices and compliant with global data protection standards.
+            Every business is unique. Schedule a consultation with our team to
+            discuss your goals, explore how we can help, and find the perfect
+            solution for your needs.
           </SubHeading>
           <Button
-            className="mt-4 mb-8 inline-block w-full md:w-auto"
-            as={Link}
-            href="/pricing"
+            data-cal-namespace="zoom"
+            data-cal-link="mvalentine/zoom"
+            data-cal-config='{"layout":"month_view"}'
+            className="mt-4 mb-8 inline-block w-full px-8 py-3 md:w-auto"
+            variant="brand"
           >
-            Start for free
+            Schedule a Review
           </Button>
         </div>
         <div className="flex items-center justify-center gap-10">

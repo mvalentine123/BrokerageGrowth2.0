@@ -1,32 +1,37 @@
 export const faqs = [
   {
-    question: "What exactly does this platform do?",
+    question: "Who is Brokerage Insight designed for?",
     answer:
-      "Our platform lets you design, deploy, and manage AI-powered agentic workflows that can combine both automated (AI) and manual steps. These workflows connect to your existing tools (like Slack, Notion, or Google Sheets) and use AI agents to complete tasks.",
+      "Brokerage Insight is built for brokerage owners, team leaders, and independent brokers who want predictable agent recruiting, automated onboarding, and real listing opportunities for their agents.",
   },
   {
-    question: "How do I get started with creating my first workflow?",
+    question: "How do the listing leads work?",
     answer:
-      "Start by using our drag-and-drop interface to design your workflow. Connect the tools you already use, define the steps (both AI and manual), and test everything in our sandbox environment before deploying. No coding required.",
+      "We create and run inbound advertising campaigns that attract homeowners actively exploring selling. Every lead is vetted before being passed to your brokerage, and many markets see conversion rates as high as 1 in 12 leads turning into listing opportunities.",
   },
   {
-    question: "What tools and services can I integrate?",
+    question: "Are the leads exclusive to our brokerage?",
     answer:
-      "We support hundreds of integrations including Slack, Notion, Google Workspace, Salesforce, GitHub, Zapier, and many more. You can also connect custom APIs and databases through our flexible connector system.",
+      "Yes. Leads are exclusive to your brokerage and are not shared across multiple brokerages. Availability depends on the market, so we review opportunities and lead capacity during your strategy call.",
   },
   {
-    question: "Is my data secure when using AI agents?",
+    question: "How are leads verified before reaching our agents?",
     answer:
-      "Yes, we take security seriously. All data is encrypted in transit and at rest, we're SOC 2 compliant, and you maintain full control over what data your agents can access. Agents only interact with the specific tools and data you explicitly authorize.",
+      "Each lead is pre-qualified to confirm property ownership and genuine selling interest. Our ISA team verifies the opportunity and provides your agents with a summary of the conversation so they can step directly into a productive listing discussion.",
   },
   {
-    question: "Can I test workflows before they go live?",
+    question: "How long does it take to get started?",
     answer:
-      "Absolutely. Our sandbox environment lets you preview and debug workflow logic safely before deployment. You can test different scenarios, validate agent behavior, and ensure everything works as expected without affecting your live systems.",
+      "Setup timelines depend on the plan you select. Some brokerages can begin receiving opportunities within 5–7 days, while full implementations including the Virtual Office and automated onboarding typically take 3–4 weeks.",
   },
   {
-    question: "What's the difference between automated and manual steps?",
+    question: "Can Brokerage Insight work with the systems we already use?",
     answer:
-      "Automated steps are handled entirely by AI agents (like data analysis, content generation, or API calls), while manual steps require human input or approval. You can mix both types to create workflows that leverage AI efficiency while maintaining human oversight where needed.",
+      "Yes. Brokerage Insight is designed to integrate with the tools and systems your brokerage already uses, including CRM platforms, communication tools, and operational software.",
+  },
+  {
+    question: "How many leads can our brokerage receive?",
+    answer:
+      "Lead volume depends on your market and capacity. During your review call we'll walk through available markets, expected lead flow, and what your brokerage can realistically support.",
   },
 ];

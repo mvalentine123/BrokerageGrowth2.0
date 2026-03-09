@@ -24,7 +24,7 @@ import Link from "next/link";
 export const metadata = getSEOTags({
   title: "Careers - Aceternity",
   description:
-    "We're Building the Future of Agent-Driven Development. Founded by engineers and AI researchers, Notus was born out of a simple frustration: building intelligent systems still required too much manual orchestration. We set out to change that by creating a tool that lets teams design, simulate, and launch autonomous agents visually and intuitively.",
+    "We're Building the Future of Agent-Driven Development. Founded by engineers and AI researchers, Brokerage Insight was born out of a simple frustration: building intelligent systems still required too much manual orchestration. We set out to change that by creating a tool that lets teams design, simulate, and launch autonomous agents visually and intuitively.",
 });
 
 export default function CareersPage() {
@@ -256,7 +256,7 @@ export default function CareersPage() {
       <Container className="border-divide flex flex-col items-center border-x border-b py-16 pb-20">
         <Badge text="Goals" />
         <SectionHeading className="mt-4 px-4 text-center">
-          Why Work at Nodus?
+          Why Work at Brokerage Insight?
         </SectionHeading>
         <div className="mt-12 grid grid-cols-1 gap-10 px-4 md:grid-cols-2 md:px-8 lg:grid-cols-3">
           {why.map((useCase, index) => (

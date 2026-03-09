@@ -4,9 +4,9 @@ import { SignUp } from "@/components/sign-up";
 import { getSEOTags } from "@/lib/seo";
 
 export const metadata = getSEOTags({
-  title: "Sign Up | Nodus",
+  title: "Sign Up | Brokerage Insight",
   description:
-    "Sign up for Nodus and start building your own autonomous agents today.",
+    "Sign up for Brokerage Insight and start building your own autonomous agents today.",
 });
 
 export default function SignupPage() {

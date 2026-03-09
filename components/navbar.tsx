@@ -16,16 +16,16 @@ import { ModeToggle } from "./mode-toggle";
 
 const items = [
   {
+    title: "Features",
+    href: "/#overview",
+  },
+  {
     title: "Pricing",
     href: "/pricing",
   },
   {
     title: "About",
     href: "/about",
-  },
-  {
-    title: "Careers",
-    href: "/careers",
   },
   {
     title: "Blog",

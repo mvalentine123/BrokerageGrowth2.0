@@ -1,13 +1,5 @@
 "use client";
-import {
-  AnthropicLogo,
-  ForkIcon,
-  MetaLogo,
-  OpenAILogo,
-  SlackLogo,
-  GmailLogo,
-  FollowUpBossLogo,
-} from "@/icons/general";
+import { GmailLogo, FollowUpBossLogo } from "@/icons/general";
 import { agents } from "@/constants/agents";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
@@ -16,17 +8,44 @@ import { DivideX } from "../divide";
 import { motion, useMotionValue, useTransform } from "motion/react";
 import { Card } from "../tech-card";
 import { Scale } from "../scale";
-import { LogoSVG } from "../logo";
 import { IntegrationsLogo } from "@/icons/bento-icons";
+import { Check, GraduationCap } from "lucide-react";
+
+const FIDICITY_ICON =
+  "https://res.cloudinary.com/dreomly4m/image/upload/v1753133157/Fidicity_Icon_3_ouewyj.png";
+const FORMS_ICON =
+  "https://res.cloudinary.com/dreomly4m/image/upload/v1772993134/forms_qxz4bt.png";
+const LOFTY_ICON =
+  "https://res.cloudinary.com/dreomly4m/image/upload/v1759086814/Lofty_ICON_zqywyl.png";
+const SKYSLOPE_ICON =
+  "https://res.cloudinary.com/dreomly4m/image/upload/v1757513363/Skyslope_light_njkyrc.png";
+const LEAD_GEN_ICON =
+  "https://res.cloudinary.com/dreomly4m/image/upload/v1750883288/facebook_w3f6ri.png";
+
+const CardLogo = ({
+  src,
+  alt,
+}: {
+  src: string;
+  alt: string;
+}) => (
+  <Image
+    src={src}
+    alt={alt}
+    width={20}
+    height={20}
+    className="h-5 w-5 shrink-0 object-contain"
+  />
+);
 
 export const DesignYourWorkflowSkeleton = () => {
   return (
     <div className="mt-12 flex flex-col items-center">
       <div className="relative">
         <Card
-          title="Slack"
-          subtitle="#standups"
-          logo={<SlackLogo />}
+          title="Fidicity Realty"
+          subtitle=""
+          logo={<CardLogo src={FIDICITY_ICON} alt="Fidicity Realty" />}
           cta="Connected"
           tone="default"
         />
@@ -37,26 +56,26 @@ export const DesignYourWorkflowSkeleton = () => {
 
       <div className="mt-12 flex flex-row gap-4.5">
         <Card
-          title="Anthropic"
-          subtitle="Claude 4"
-          logo={<AnthropicLogo />}
-          cta="UI Generator"
-          tone="danger"
+          title="Lofty"
+          subtitle=""
+          logo={<CardLogo src={LOFTY_ICON} alt="Lofty" />}
+          cta="Connected"
+          tone="default"
           delay={0.2}
         />
         <Card
-          title="Meta"
-          subtitle="Llama 2"
-          logo={<MetaLogo />}
-          cta="Text Generator"
+          title="Skyslope"
+          subtitle=""
+          logo={<CardLogo src={SKYSLOPE_ICON} alt="Skyslope" />}
+          cta="Active"
           tone="default"
           delay={0.4}
         />
         <Card
-          title="OpenAI"
-          subtitle="GPT-5"
-          logo={<OpenAILogo />}
-          cta="Code Generator"
+          title="Lead Generation"
+          subtitle=""
+          logo={<CardLogo src={LEAD_GEN_ICON} alt="Lead Generation" />}
+          cta="Active"
           tone="success"
           delay={0.6}
         />
@@ -65,8 +84,14 @@ export const DesignYourWorkflowSkeleton = () => {
   );
 };
 
+const ONBOARDING_TASKS = [
+  "Collect W9",
+  "Brokerage Email Created",
+  "CRM Account Created",
+  "Training Assigned",
+];
+
 export const ConnectYourTooklsSkeleton = () => {
-  const text = `Collect W9, setup brokerage email, create CRM account, configure signature`;
   const [mounted, setMounted] = useState(false);
   const randomWidth = useMemo(() => Math.random() * 100, [mounted]);
 
@@ -86,7 +111,13 @@ export const ConnectYourTooklsSkeleton = () => {
       >
         <div className="absolute -top-4 -right-4 flex h-14 w-14 items-center justify-center rounded-lg bg-white shadow-xl">
           <Scale />
-          <OpenAILogo className="relative z-20 h-8 w-8" />
+          <Image
+            src={FORMS_ICON}
+            alt=""
+            width={32}
+            height={32}
+            className="relative z-20 h-8 w-8 object-contain"
+          />
         </div>
         <div className="mt-12 flex items-center gap-2">
           <IntegrationsLogo />
@@ -96,30 +127,15 @@ export const ConnectYourTooklsSkeleton = () => {
         </div>
         <DivideX className="mt-2" />
 
-        <div className="mt-4 flex items-center justify-between gap-2">
-          <div className="flex items-center gap-2">
-            <span className="text-charcoal-700 text-[10px] leading-loose font-normal md:text-xs dark:text-neutral-200">
-              {text.split(/(\s+)/).map((word, index) => (
-                <motion.span
-                  key={index}
-                  initial={{
-                    opacity: 0,
-                  }}
-                  animate={{
-                    opacity: 1,
-                  }}
-                  transition={{
-                    duration: 0.2,
-                    delay: index * 0.02,
-                    ease: "linear",
-                  }}
-                  className="inline-block"
-                >
-                  {word === " " ? "\u00A0" : word}
-                </motion.span>
-              ))}
-            </span>
-          </div>
+        <div className="mt-4 flex flex-col gap-3">
+          {ONBOARDING_TASKS.map((task) => (
+            <div key={task} className="flex items-center gap-2">
+              <Check className="h-3.5 w-3.5 shrink-0 text-emerald-500" />
+              <span className="text-charcoal-700 text-[10px] font-normal md:text-xs dark:text-neutral-200">
+                {task}
+              </span>
+            </div>
+          ))}
         </div>
         <div className="mt-2 flex flex-col">
           {[...Array(2)].map((_, index) => (
@@ -162,7 +178,13 @@ export const ConnectYourTooklsSkeleton = () => {
       >
         <div className="absolute -top-4 -left-4 flex h-14 w-14 items-center justify-center rounded-lg bg-white shadow-xl dark:bg-neutral-800">
           <Scale />
-          <LogoSVG className="relative z-20 h-8 w-8" />
+          <Image
+            src={FIDICITY_ICON}
+            alt=""
+            width={32}
+            height={32}
+            className="relative z-20 h-8 w-8 object-contain"
+          />
         </div>
         <div className="mt-12 flex items-center gap-2">
           <IntegrationsLogo className="dark:text-neutral-200" />
@@ -194,6 +216,18 @@ export const ConnectYourTooklsSkeleton = () => {
             <GmailLogo className="h-4 w-4 shrink-0" />
             <span className="text-charcoal-700 text-xs font-medium md:text-sm dark:text-neutral-200">
               Brokerage Email
+            </span>
+          </div>
+
+          <div className="rounded-sm border border-blue-500 bg-blue-50 px-2 py-0.5 text-xs text-blue-500">
+            Active
+          </div>
+        </div>
+        <div className="mt-4 flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2">
+            <GraduationCap className="h-4 w-4 shrink-0 text-charcoal-700 dark:text-neutral-200" />
+            <span className="text-charcoal-700 text-xs font-medium md:text-sm dark:text-neutral-200">
+              Training Portal
             </span>
           </div>
 
@@ -332,7 +366,8 @@ export const DeployAndScaleSkeleton = () => {
               name={card.name}
               headshot={card.headshot}
               timestamp={card.timestamp}
-              platform={card.platform}
+              platformIcon={card.platformIcon}
+              designation={card.designation}
             />
           </motion.div>
         ))}
@@ -346,17 +381,19 @@ const AgentCard = ({
   name,
   headshot,
   timestamp,
-  platform,
+  platformIcon,
+  designation,
 }: {
   variant?: "default" | "danger" | "success" | "warning";
   name: string;
   headshot: string;
   timestamp: string;
-  platform: string;
+  platformIcon: string;
+  designation: string;
 }) => {
   return (
     <div className="mx-auto flex w-full max-w-sm items-center justify-between rounded-lg p-3">
-      <div className="flex items-center gap-2">
+      <div className="flex min-w-0 flex-1 items-center gap-2">
         <div
           className={cn(
             "relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full ring-2",
@@ -374,16 +411,27 @@ const AgentCard = ({
             className="h-full w-full object-cover"
           />
         </div>
-        <span className="text-charcoal-700 text-xs font-medium sm:text-sm">
-          {name}
-        </span>
+        <div className="flex min-w-0 flex-col">
+          <span className="text-charcoal-700 text-xs font-medium sm:text-sm">
+            {name}
+          </span>
+          <span className="text-charcoal-700 text-[10px] font-normal text-gray-500 sm:text-xs">
+            {designation}
+          </span>
+        </div>
       </div>
-      <div className="ml-2 flex flex-row items-center gap-2">
+      <div className="ml-2 flex shrink-0 flex-row items-center gap-2">
         <span className="text-charcoal-700 text-xs font-normal">
           {timestamp}
         </span>
-        <div className="size-1 rounded-full bg-gray-400"></div>
-        <span className="text-charcoal-700 text-xs font-normal">{platform}</span>
+        <div className="size-1 rounded-full bg-gray-400" />
+        <Image
+          src={platformIcon}
+          alt=""
+          width={16}
+          height={16}
+          className="h-4 w-4 object-contain"
+        />
       </div>
     </div>
   );

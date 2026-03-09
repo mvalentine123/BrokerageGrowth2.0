@@ -7,76 +7,22 @@ import { SendIcon } from "@/icons/bento-icons";
 
 export const Footer = () => {
   const product = [
-    {
-      title: "Agent Builder",
-      href: "#",
-    },
-    {
-      title: "Simulation",
-      href: "#",
-    },
-    {
-      title: "Integrations",
-      href: "#",
-    },
-    {
-      title: "Multi Agent",
-      href: "#",
-    },
-    {
-      title: "Workflow API",
-      href: "#",
-    },
+    { title: "Recruiting", href: "#" },
+    { title: "Onboarding", href: "#" },
+    { title: "Virtual Office", href: "#" },
+    { title: "Lead Gen", href: "#" },
   ];
 
   const company = [
-    {
-      title: "Sign In",
-      href: "/sign-in",
-    },
-    {
-      title: "About",
-      href: "/about",
-    },
-    {
-      title: "Contact",
-      href: "/contact",
-    },
-    {
-      title: "Pricing",
-      href: "/pricing",
-    },
-    {
-      title: "Careers",
-      href: "/careers",
-    },
-    {
-      title: "Docs",
-      href: "#",
-    },
-    {
-      title: "Changelog",
-      href: "#",
-    },
-    {
-      title: "Glossary",
-      href: "#",
-    },
+    { title: "Sign In", href: "/sign-in" },
+    { title: "About", href: "/about" },
+    { title: "Contact", href: "/contact" },
+    { title: "Pricing", href: "/pricing" },
   ];
 
   const legal = [
-    {
-      title: "Privacy Policy",
-      href: "/privacy-policy",
-    },
-    {
-      title: "Terms of Service",
-      href: "/terms-of-service",
-    },
-    {
-      title: "Cookie Policy",
-      href: "/cookie-policy",
-    },
+    { title: "Privacy Policy", href: "/privacy-policy" },
+    { title: "Terms of Service", href: "/terms-of-service" },
   ];
   return (
     <Container>
@@ -84,12 +30,13 @@ export const Footer = () => {
         <div className="mb-6 sm:col-span-2 md:col-span-4 lg:col-span-3">
           <Logo />
           <SubHeading as="p" className="mt-4 max-w-lg text-left">
-            Manage and simulate agentic workflows
+            For Broker/Owners & Team Leaders
           </SubHeading>
           <Button
             data-cal-namespace="zoom"
             data-cal-link="mvalentine/zoom"
             data-cal-config='{"layout":"month_view"}'
+            variant="brand"
             className="mt-4 mb-8 lg:mb-0"
           >
             Schedule a Review
@@ -153,7 +100,7 @@ export const Footer = () => {
       </div>
       <div className="my-4 flex flex-col items-center justify-between px-4 pt-8 md:flex-row">
         <p className="text-footer-link text-sm">
-          © 2024 Notus Aceternity Fight Club. All rights reserved.
+          © 2026 Brokerage Insight. All rights reserved.
         </p>
         <div className="mt-4 flex items-center gap-4 md:mt-0">
           <Link

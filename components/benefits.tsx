@@ -8,8 +8,9 @@ import {
   RocketIcon,
   GraphIcon,
   ShieldIcon,
-  ReuseBrainIcon,
   ScreenCogIcon,
+  PhoneIcon,
+  CheckIcon,
   BellIcon,
 } from "@/icons/card-icons";
 import { Scale } from "./scale";
@@ -25,53 +26,53 @@ import { VerticalLine } from "./common/vertical-line";
 export const Benefits = () => {
   const benefits = [
     {
-      title: "Launch Faster",
+      title: "Motivated Seller Leads",
       description:
-        "Visually orchestrate autonomous agents without writing boilerplate code",
+        "Agents receive listing opportunities from homeowners actively exploring selling.",
       icon: <RocketIcon className="text-brand size-6" />,
     },
     {
-      title: "Iterate Rapidly",
+      title: "Verified by ISA",
       description:
-        "Visually orchestrate autonomous agents without writing boilerplate code",
-      icon: <RealtimeSyncIcon className="text-brand size-6" />,
+        "Every lead is vetted and qualified before being passed to your agents.",
+      icon: <CheckIcon className="text-brand size-6" />,
     },
     {
-      title: "Scale Smarter",
+      title: "Exclusive Opportunities",
       description:
-        "Visually orchestrate autonomous agents without writing boilerplate code",
-      icon: <GraphIcon className="text-brand size-6" />,
-    },
-    {
-      title: "Reuse Intelligence",
-      description:
-        "Visually orchestrate autonomous agents without writing boilerplate code",
-      icon: <ReuseBrainIcon className="text-brand size-6" />,
-    },
-    {
-      title: "Prevent Breakdowns",
-      description:
-        "Visually orchestrate autonomous agents without writing boilerplate code",
+        "Leads are distributed inside your brokerage, not shared across the market.",
       icon: <ShieldIcon className="text-brand size-6" />,
     },
     {
-      title: "Automate More",
+      title: "Listing Appointments",
       description:
-        "Visually orchestrate autonomous agents without writing boilerplate code",
+        "Agents receive real opportunities to secure listing appointments.",
+      icon: <PhoneIcon className="text-brand size-6" />,
+    },
+    {
+      title: "Recruit With Confidence",
+      description:
+        "Brokerages attract better agents when real deal flow exists.",
       icon: <ScreenCogIcon className="text-brand size-6" />,
+    },
+    {
+      title: "Close More Transactions",
+      description:
+        "More listing conversations lead to more signed listings and closings.",
+      icon: <GraphIcon className="text-brand size-6" />,
     },
   ];
   return (
     <Container className="border-divide relative overflow-hidden border-x px-4 py-20 md:px-8">
       <div className="relative flex flex-col items-center">
-        <Badge text="Benefits" />
+        <Badge text="Agent Production" />
         <SectionHeading className="mt-4">
-          Making Engineers 10x faster
+          Real Listing Opportunities
         </SectionHeading>
 
         <SubHeading as="p" className="mx-auto mt-6 max-w-lg">
-          We empower developers and technical teams to create, simulate, and
-          manage AI-driven workflows visually
+          Provide motivated seller listing leads so agents can win listings and
+          generate consistent business.
         </SubHeading>
       </div>
       <div className="mt-20 grid grid-cols-1 gap-4 md:grid-cols-3">

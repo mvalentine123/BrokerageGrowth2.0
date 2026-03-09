@@ -1,20 +1,20 @@
 export const founders = [
   {
-    name: "Manu Arora",
+    name: "Maximillian Valentine",
     title: "Founder",
-    src: "/avatars/manu.png",
-    url: "https://twitter.com/mannupaaji",
+    src: "https://res.cloudinary.com/dreomly4m/image/upload/v1761240408/MV_Headshot_eibrgi.png",
+    url: "#",
   },
   {
-    name: "Tyler Durden",
-    title: "Co-Founder & CTO",
-    src: "/avatars/tyler.png",
-    url: "https://twitter.com/mannupaaji",
+    name: "Pat Chiarello",
+    title: "Consultant",
+    src: "https://res.cloudinary.com/dreomly4m/image/upload/v1748999702/Pat_1_jargx9.png",
+    url: "#",
   },
   {
-    name: "Alex Rodriguez",
-    title: "Co-Founder & CPO",
-    src: "/avatars/alex.png",
+    name: "Julie Lalonde",
+    title: "Creative Director",
+    src: "https://res.cloudinary.com/dreomly4m/image/upload/v1773016970/CleanShot_2026-03-08_at_20.42.38_ovrhqh.png",
     url: "#",
   },
   {

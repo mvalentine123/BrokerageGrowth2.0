@@ -55,17 +55,13 @@ export const FAQs = () => {
       </SectionHeading>
 
       <SubHeading as="p" className="mx-auto mt-6 max-w-lg px-2">
-        Find all your doubts and questions in one place. Still couldn't find
-        what you're looking for?
+        Common questions from brokerage owners exploring Brokerage Insight.
       </SubHeading>
       <div className="mt-8 mb-12 flex w-full flex-col justify-center gap-4 px-4 sm:flex-row">
-        <Button variant="primary" className="w-full sm:w-auto">
-          Read Docs
-        </Button>
         <Button
           as="a"
           href="mailto:support@example.com"
-          variant="secondary"
+          variant="primary"
           className="w-full sm:w-auto"
         >
           Contact Us

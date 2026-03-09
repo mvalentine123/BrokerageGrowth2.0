@@ -30,35 +30,35 @@ export const AgenticIntelligence = () => {
   return (
     <Container className="border-divide border-x">
       <div className="flex flex-col items-center py-16">
-        <Badge text="Features" />
+        <Badge text="How it works" />
         <SectionHeading className="mt-4">
-          Built for Agentic Intelligence
+          How Modern Brokerages Grow
         </SectionHeading>
 
         <SubHeading as="p" className="mx-auto mt-6 max-w-lg px-2">
-          Build, test and deploy AI agents with a powerful visual interface
-          designed for technical teams
+          Attract agents with inbound campaigns, book intro calls automatically,
+          and activate operations the moment they join.
         </SubHeading>
         <div className="border-divide divide-divide mt-16 grid grid-cols-1 divide-y border-y md:grid-cols-2 md:divide-x">
           <Card className="overflow-hidden mask-b-from-80%">
             <div className="flex items-center gap-2">
               <BrainIcon />
-              <CardTitle>LLM Model Selector</CardTitle>
+              <CardTitle>Stop Chasing. Start Attracting.</CardTitle>
             </div>
             <CardDescription>
-              Track real-time activity of agents with detailed records of
-              triggers, tools used, outcomes, and timestamps.
+              Inbound campaigns generate conversations with agents exploring
+              brokerages.
             </CardDescription>
             <LLMModelSelectorSkeleton />
           </Card>
           <Card className="overflow-hidden mask-b-from-80%">
             <div className="flex items-center gap-2">
               <MouseBoxIcon />
-              <CardTitle>Text to workflow builder</CardTitle>
+              <CardTitle>Automated Discovery Calls</CardTitle>
             </div>
             <CardDescription>
-              Preview and debug workflow logic in a safe sandbox before
-              deploying, helping you iterate with confidence.
+              Automated conversations qualify agents and book right on your
+              calendar.
             </CardDescription>
             <TextToWorkflowBuilderSkeleton />
           </Card>
@@ -68,11 +68,11 @@ export const AgenticIntelligence = () => {
             <div className="pointer-events-none absolute inset-0 h-full w-full bg-[radial-gradient(var(--color-dots)_1px,transparent_1px)] mask-radial-from-10% [background-size:10px_10px]"></div>
             <div className="flex items-center gap-2">
               <NativeIcon />
-              <CardTitle>Native Tools Integration</CardTitle>
+              <CardTitle>Automate Your Brokerage Operations</CardTitle>
             </div>
             <CardDescription>
-              Track real-time activity of agents with detailed records of
-              triggers, tools used, outcomes, and timestamps.
+              Once an agent joins, onboarding and brokerage systems activate
+              automatically.
             </CardDescription>
             <NativeToolsIntegrationSkeleton />
           </Card>
@@ -81,31 +81,31 @@ export const AgenticIntelligence = () => {
           <Card>
             <div className="flex items-center gap-2">
               <FingerprintIcon />
-              <CardTitle>One Click Auth</CardTitle>
+              <CardTitle>Agent Onboarding</CardTitle>
             </div>
             <CardDescription>
-              A drag-and-drop interface to create, connect, and configure agents
-              into logical workflows
+              Agents move from signed to operational automatically. Documents
+              are collected, systems configured, and training assigned.
             </CardDescription>
           </Card>
           <Card>
             <div className="flex items-center gap-2">
               <RealtimeSyncIcon />
-              <CardTitle>Realtime Sync</CardTitle>
+              <CardTitle>Virtual Office</CardTitle>
             </div>
             <CardDescription>
-              Agents operate independently and coordinate tasks to complete
-              complex all goals
+              A centralized hub where agents access training, systems, and
+              resources independently.
             </CardDescription>
           </Card>
           <Card>
             <div className="flex items-center gap-2">
               <SDKIcon />
-              <CardTitle>Custom Connector SDK</CardTitle>
+              <CardTitle>Agent Production</CardTitle>
             </div>
             <CardDescription>
-              Run agent workflows in a sandbox to preview behavior, debug logic,
-              and test interactions
+              Agents get the infrastructure needed to generate business. Lead
+              generation, marketing tools, and operational support are built in.
             </CardDescription>
           </Card>
         </div>

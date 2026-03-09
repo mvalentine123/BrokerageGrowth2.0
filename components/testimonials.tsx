@@ -11,10 +11,13 @@ import { AnimatePresence } from "motion/react";
 import { PixelatedCanvas } from "./pixelated-canvas";
 
 export const Testimonials = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const selectedTestimonial = testimonials[currentIndex];
+  const DISPLAY_COUNT = 4;
+  const displayTestimonials = testimonials.slice(0, DISPLAY_COUNT);
 
-  const totalTestimonials = testimonials.length;
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const selectedTestimonial = displayTestimonials[currentIndex];
+
+  const totalTestimonials = displayTestimonials.length;
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -56,9 +59,9 @@ export const Testimonials = () => {
               duration: 0.2,
               ease: "easeInOut",
             }}
-            className="divide-divide grid grid-cols-1 items-stretch divide-x bg-gray-100 md:h-[28rem] md:grid-cols-4 dark:bg-neutral-800"
+            className="divide-divide grid grid-cols-1 items-stretch bg-gray-100 md:min-h-0 dark:bg-neutral-800"
           >
-            <div className="col-span-4 flex flex-col gap-10 px-4 py-10 md:flex-row md:py-0 lg:col-span-3">
+            <div className="flex flex-col gap-6 px-4 py-6 md:flex-row md:items-center md:py-6">
               <Image
                 src={selectedTestimonial.avatar}
                 alt={selectedTestimonial.name}
@@ -67,25 +70,25 @@ export const Testimonials = () => {
                 className="m-4 hidden aspect-square rounded-xl object-cover md:block"
                 draggable={false}
               />
-              <div className="flex flex-col items-start justify-between gap-4 py-4 pr-8">
+              <div className="flex flex-col items-start justify-between gap-3 py-2 pr-4 md:pr-6">
                 <div>
                   <Image
                     src={selectedTestimonial.src}
                     alt={selectedTestimonial.company}
-                    width={200}
-                    height={200}
+                    width={120}
+                    height={48}
                     className={cn(
-                      "object-contain dark:invert dark:filter",
+                      "h-8 w-auto object-contain dark:invert dark:filter",
                       selectedTestimonial.logoClassName,
                     )}
                     draggable={false}
                   />
-                  <blockquote className="text-charcoal-900 mt-6 text-xl leading-relaxed dark:text-neutral-100">
+                  <blockquote className="text-charcoal-900 mt-3 text-base leading-relaxed dark:text-neutral-100 md:text-lg">
                     &quot;{selectedTestimonial.quote}&quot;
                   </blockquote>
                 </div>
 
-                <div className="flex items-end justify-between gap-4">
+                <div className="flex items-center gap-3">
                   <Image
                     src={selectedTestimonial.avatar}
                     alt={selectedTestimonial.name}
@@ -105,22 +108,10 @@ export const Testimonials = () => {
                 </div>
               </div>
             </div>
-            <div className="hidden flex-col justify-end px-4 pb-4 lg:col-span-1 lg:flex">
-              <div className="flex flex-col gap-4">
-                <div className="flex flex-col gap-2">
-                  <p className="text-charcoal-700 text-7xl font-semibold dark:text-neutral-100">
-                    {selectedTestimonial.sideText}
-                  </p>
-                  <p className="text-sm text-gray-700 dark:text-neutral-400">
-                    {selectedTestimonial.sideSubText}
-                  </p>
-                </div>
-              </div>
-            </div>
           </motion.div>
         </AnimatePresence>
         <div className="border-divide grid grid-cols-2 border-t md:grid-cols-4">
-          {testimonials.slice(0, 8).map((testimonial, index) => {
+          {displayTestimonials.map((testimonial, index) => {
             return (
               <button
                 key={testimonial.src + index}
@@ -128,10 +119,9 @@ export const Testimonials = () => {
                   "border-divide group relative overflow-hidden",
                   "border-r md:border-r-0",
                   index % 2 === 0 ? "border-r" : "",
-                  index < 6 ? "border-b md:border-b-0" : "",
+                  index < 2 ? "border-b md:border-b-0" : "",
                   "md:border-r-0",
                   index % 4 !== 3 ? "md:border-r" : "",
-                  index < 4 ? "md:border-b" : "",
                 )}
                 onClick={() => {
                   setCurrentIndex(index);
