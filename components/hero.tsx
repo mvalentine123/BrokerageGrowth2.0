@@ -13,7 +13,7 @@ import Link from "next/link";
 export const Hero = () => {
   return (
     <Container className="border-divide flex flex-col items-center justify-center border-x px-4 pt-10 pb-10 md:pt-32 md:pb-20">
-      <Badge text="For Established Brokerages with 40+ Agents." />
+      <Badge text="For Brokerage Owners & Team Leaders" />
       <Heading className="mt-4">
         Install the Infrastructure <br /> Behind{" "}
         <span className="text-brand">Brokerage Growth</span>

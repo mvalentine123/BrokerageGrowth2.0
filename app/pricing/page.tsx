@@ -5,9 +5,9 @@ import { FAQs } from "@/components/faqs";
 import {
   PlansAdditionalServices,
   PlansCards,
-  PlansScaleComparison,
 } from "@/components/plans-cards";
 import { Pricing } from "@/components/pricing";
+import { PricingTable } from "@/components/pricing-table";
 import { getSEOTags } from "@/lib/seo";
 
 export const metadata = getSEOTags({
@@ -25,7 +25,7 @@ export default function PricingPage() {
           <div className="space-y-16">
             <Pricing />
             <PlansCards />
-            <PlansScaleComparison />
+            <PricingTable />
             <PlansAdditionalServices />
           </div>
         </Container>

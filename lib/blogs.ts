@@ -48,6 +48,9 @@ export const getBlogs = async () => {
     }),
   );
 
+  allBlogs.sort(
+    (a, b) => new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime()
+  );
   return allBlogs;
 };
 

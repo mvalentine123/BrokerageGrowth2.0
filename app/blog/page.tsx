@@ -18,18 +18,25 @@ const truncate = (str: string, length: number) => {
   return str.length > length ? str.substring(0, length) + "..." : str;
 };
 
+const FEATURED_THIRD_SLUG = "future-blockchain-title-services";
+
 export default async function BlogsPage() {
-  const allBlogs = await getBlogs();
+  let allBlogs = await getBlogs();
+  const featuredIndex = allBlogs.findIndex((b) => b.slug === FEATURED_THIRD_SLUG);
+  if (featuredIndex >= 0 && featuredIndex !== 2) {
+    const [propyPost] = allBlogs.splice(featuredIndex, 1);
+    allBlogs.splice(2, 0, propyPost);
+  }
 
   return (
     <div>
       <DivideX />
       <Container className="border-divide flex flex-col items-center border-x pt-10 md:pt-20 md:pb-10">
-        <Badge text=" All blogs" />
-        <Heading>Writing for the World</Heading>
-        <SubHeading className="mx-auto mt-2 max-w-sm px-4">
-          At Brokerage Insight, we educate and empower developers to build better software
-          solutions for the world.
+        <Badge text="Brokerage Insights" />
+        <Heading>Systems Behind Brokerage Growth</Heading>
+        <SubHeading className="mx-auto mt-2 max-w-lg px-4">
+          Insights on recruiting agents, scaling brokerages, and installing the
+          infrastructure behind growth.
         </SubHeading>
         <div className="border-divide divide-divide mt-10 flex w-full flex-col divide-y border-y">
           <GridLayout blogs={allBlogs.slice(0, 3)} />

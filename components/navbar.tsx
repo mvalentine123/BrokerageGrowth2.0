@@ -27,10 +27,6 @@ const items = [
     title: "About",
     href: "/about",
   },
-  {
-    title: "Blog",
-    href: "/blog",
-  },
 ];
 
 export const Navbar = () => {
@@ -123,9 +119,11 @@ const DesktopNav = ({
   items: { title: string; href: string }[];
 }) => {
   return (
-    <div className="hidden items-center justify-between px-4 py-4 md:flex">
-      <Logo />
-      <div className="flex items-center gap-10">
+    <div className="hidden grid-cols-3 items-center px-4 py-4 md:grid">
+      <div className="flex items-center">
+        <Logo />
+      </div>
+      <div className="flex items-center justify-center gap-10">
         {items.map((item) => (
           <Link
             className="font-medium text-gray-600 transition duration-200 hover:text-neutral-900 dark:text-gray-300 dark:hover:text-neutral-300"
@@ -136,7 +134,7 @@ const DesktopNav = ({
           </Link>
         ))}
       </div>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center justify-end gap-2">
         <ModeToggle />
         <Button
           data-cal-namespace="zoom"
@@ -167,10 +165,12 @@ const FloatingNav = ({
   return (
     <motion.div
       style={{ y }}
-      className="shadow-aceternity fixed inset-x-0 top-0 z-50 mx-auto hidden max-w-[calc(80rem-4rem)] items-center justify-between bg-white/80 px-2 py-2 backdrop-blur-sm md:flex xl:rounded-2xl dark:bg-neutral-900/80 dark:shadow-[0px_2px_0px_0px_var(--color-neutral-800),0px_-2px_0px_0px_var(--color-neutral-800)]"
+      className="shadow-aceternity fixed inset-x-0 top-0 z-50 mx-auto hidden max-w-[calc(80rem-4rem)] grid grid-cols-3 items-center bg-white/80 px-2 py-2 backdrop-blur-sm md:grid xl:rounded-2xl dark:bg-neutral-900/80 dark:shadow-[0px_2px_0px_0px_var(--color-neutral-800),0px_-2px_0px_0px_var(--color-neutral-800)]"
     >
-      <Logo />
-      <div className="flex items-center gap-10">
+      <div className="flex items-center">
+        <Logo />
+      </div>
+      <div className="flex items-center justify-center gap-10">
         {items.map((item) => (
           <Link
             className="font-medium text-gray-600 transition duration-200 hover:text-neutral-900 dark:text-gray-300 dark:hover:text-neutral-300"
@@ -181,7 +181,7 @@ const FloatingNav = ({
           </Link>
         ))}
       </div>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center justify-end gap-2">
         <ModeToggle />
         <Button
           data-cal-namespace="zoom"
